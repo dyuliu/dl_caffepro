@@ -1,0 +1,46 @@
+function result = add_conv(name, bottom, top, ksize, outputs, stride, pad, has_bias, varargin)
+    assert(nargin >= 8);
+    opt = struct();
+    if nargin >= 9, opt = varargin{1}; end;
+    
+    if ~isfield(opt, 'weight_filler'), opt.weight_filler = {'type', 'gaussian', 'std', 0.01}; end;
+    if ~isfield(opt, 'bias_filler'), opt.bias_filler = {'type', 'constant', 'value', 0}; end;
+    
+    assert(length(ksize) <= 2);
+    if length(ksize) == 2
+        ksize_param = {'kernel_size_x', ksize(1), 'kernel_size_y', ksize(2)};
+    else
+        ksize_param = {'kernel_size', ksize};
+    end
+    
+    assert(length(pad) <= 2);
+    if length(pad) == 2
+        pad_param = {'pad_x', pad(1), 'pad_y', pad(2)};
+    else 
+        pad_param = {'pad', pad};
+    end
+    
+    assert(length(stride) <= 2);
+    if length(stride) == 2
+        stride_param = {'stride_x', stride(1), 'stride_y', stride(2)};
+    else
+        stride_param = {'stride', stride};
+    end
+    
+    result = builder.layers.add_layer( ...
+        name, 'conv', bottom, top, ...
+        {'conv_param', { ...
+            'num_output', outputs, ...
+            ksize_param, ...
+            pad_param, ...
+            stride_param, ...
+            'weight_filler', opt.weight_filler, ...
+            iif(has_bias, {'bias_filler', opt.bias_filler}, []), ...
+            'bias_term', iif(has_bias, [], 'false'), ...
+            }, ...
+        }, ...
+        'blobs_lr', 1, ...
+        iif(has_bias, {'blobs_lr', 1}, []) ...
+        );
+end
+

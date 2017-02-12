@@ -1,0 +1,319 @@
+name: "net"
+input: "data"
+input_dim: 64
+input_dim: 3
+input_dim: 224
+input_dim: 224
+
+# ------------------------ conv1 -----------------------------
+layers {
+layer {
+   name: "conv1"
+   type: "conv"
+   conv_param{
+	   num_output: 64
+	   kernel_size: 7
+	   pad: 3
+	   stride: 2
+	   weight_filler {
+		 type: "gaussian"
+		 std: 0.01
+	   }
+	   bias_filler {
+		 type: "constant"
+		 value: 0
+	   }
+	   block_calc: 1
+   }
+   blobs_lr: 1.0
+   blobs_lr: 2.0
+ }
+ bottom: "data"
+ top: "conv1"
+}
+
+layers {
+ layer {
+   name: "conv1_relu"
+   type: "relu"
+ }
+ bottom: "conv1"
+ top: "conv1"
+}
+ 
+layers {
+ layer {
+   name: "pool1"
+   type: "pool"
+   pool_param{
+	   kernel_size: 3
+	   stride: 2
+	   pool: MAX
+   }
+ }
+ bottom: "conv1"
+ top: "pool1"
+}
+
+#-----------------------------------interstellar 2a------ (pool1=>ins2a)
+
+#------1x1(256)
+#------1x1-3x3-1x1(64, 256)
+
+#------branch1
+layers {
+layer {
+   name: "interstellar2a_branch1"
+   type: "conv"
+   conv_param{
+	   num_output: 256
+	   kernel_size: 1
+	   pad: 0
+	   stride: 1
+	   weight_filler {
+		 type: "xiangyu"
+	   }
+	   bias_term: false
+	   block_calc: 1
+	   use_cudnn: true
+   }
+   blobs_lr: 1.0
+ }
+ bottom: "pool1"
+ top: "interstellar2a_branch1"
+}
+
+#------branch2
+layers {
+layer {
+   name: "interstellar2a_branch2a"
+   type: "conv"
+   conv_param{
+	   num_output: 64
+	   kernel_size: 1
+	   pad: 0
+	   stride: 1
+	   weight_filler {
+		 type: "xiangyu"
+	   }
+	   bias_term: false
+	   block_calc: 1
+	   use_cudnn: true
+   }
+   blobs_lr: 1.0
+ }
+ bottom: "pool1"
+ top: "interstellar2a_branch2a"
+}
+
+layers {
+ layer {
+   name: "interstellar2a_branch2a_relu"
+   type: "relu"
+ }
+ bottom: "interstellar2a_branch2a"
+ top: "interstellar2a_branch2a"
+}
+
+layers {
+layer {
+   name: "interstellar2a_branch2b"
+   type: "conv"
+   conv_param{
+	   num_output: 64
+	   kernel_size: 3
+	   pad: 1
+	   stride: 1
+	   weight_filler {
+		 type: "xiangyu"
+	   }
+	   bias_term: false
+	   block_calc: 1
+	   use_cudnn: true
+   }
+   blobs_lr: 1.0
+ }
+ bottom: "interstellar2a_branch2a"
+ top: "interstellar2a_branch2b"
+}
+
+layers {
+ layer {
+   name: "interstellar2a_branch2b_relu"
+   type: "relu"
+ }
+ bottom: "interstellar2a_branch2b"
+ top: "interstellar2a_branch2b"
+}
+
+layers {
+layer {
+   name: "interstellar2a_branch2c"
+   type: "conv"
+   conv_param{
+	   num_output: 256
+	   kernel_size: 1
+	   pad: 0
+	   stride: 1
+	   weight_filler {
+		 type: "xiangyu"
+	   }
+	   bias_term: false
+	   block_calc: 1
+	   use_cudnn: true
+   }
+   blobs_lr: 1.0
+ }
+ bottom: "interstellar2a_branch2b"
+ top: "interstellar2a_branch2c"
+}
+
+layers {
+ layer {
+   name: "interstellar2a"
+   type: "eltwise_sum"
+ }
+ bottom: "interstellar2a_branch1"
+ bottom: "interstellar2a_branch2c"
+
+ top: "ins2a"
+}
+
+layers {
+ layer {
+   name: "ins2a_relu"
+   type: "relu"
+ }
+ bottom: "ins2a"
+ top: "ins2a"
+}
+
+# ------------------------ End of interstellar2a -----------------------------
+
+
+#-----------------------------------interstellar 2b------ (ins2a=>ins2b)
+
+#------1x1-3x3-1x1(64, 256)
+
+#------branch2
+layers {
+layer {
+   name: "interstellar2b_branch2a"
+   type: "conv"
+   conv_param{
+	   num_output: 64
+	   kernel_size: 1
+	   pad: 0
+	   stride: 1
+	   weight_filler {
+		 type: "xiangyu"
+	   }
+	   bias_term: false
+	   block_calc: 1
+	   use_cudnn: true
+   }
+   blobs_lr: 1.0
+ }
+ bottom: "ins2a"
+ top: "interstellar2b_branch2a"
+}
+
+layers {
+ layer {
+   name: "interstellar2b_branch2a_relu"
+   type: "relu"
+ }
+ bottom: "interstellar2b_branch2a"
+ top: "interstellar2b_branch2a"
+}
+
+layers {
+layer {
+   name: "interstellar2b_branch2b"
+   type: "conv"
+   conv_param{
+	   num_output: 64
+	   kernel_size: 3
+	   pad: 1
+	   stride: 1
+	   weight_filler {
+		 type: "xiangyu"
+	   }
+	   bias_term: false
+	   block_calc: 1
+	   use_cudnn: true
+   }
+   blobs_lr: 1.0
+ }
+ bottom: "interstellar2b_branch2a"
+ top: "interstellar2b_branch2b"
+}
+
+layers {
+ layer {
+   name: "interstellar2b_branch2b_relu"
+   type: "relu"
+ }
+ bottom: "interstellar2b_branch2b"
+ top: "interstellar2b_branch2b"
+}
+
+layers {
+layer {
+   name: "interstellar2b_branch2c"
+   type: "conv"
+   conv_param{
+	   num_output: 256
+	   kernel_size: 1
+	   pad: 0
+	   stride: 1
+	   weight_filler {
+		 type: "xiangyu"
+	   }
+	   bias_term: false
+	   block_calc: 1
+	   use_cudnn: true
+   }
+   blobs_lr: 1.0
+ }
+ bottom: "interstellar2b_branch2b"
+ top: "interstellar2b_branch2c"
+}
+
+layers {
+ layer {
+   name: "ins2a_dumb"
+   type: "pool"
+   pool_param{
+	   kernel_size: 1
+	   stride: 1
+	   pool: MAX
+   }
+ }
+ bottom: "ins2a"
+ top: "ins2a_dumb"
+}
+
+layers {
+ layer {
+   name: "interstellar2b"
+   type: "eltwise_sum"
+ }
+ bottom: "ins2a_dumb"
+ bottom: "interstellar2b_branch2c"
+
+ top: "ins2b"
+}
+
+layers {
+ layer {
+   name: "ins2b_relu"
+   type: "relu"
+ }
+ bottom: "ins2b"
+ top: "ins2b"
+}
+
+# ------------------------ End of interstellar2b -----------------------------
+
+

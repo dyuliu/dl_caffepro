@@ -1,0 +1,6 @@
+function result = add_gpuconcat(name, bottom, top, gpu_id)
+    result = builder.layers.add_layer(...
+        name, 'gpu_concat', bottom, top, 'gpu_id', gpu_id ...
+        );
+end
+

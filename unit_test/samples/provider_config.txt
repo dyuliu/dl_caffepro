@@ -1,0 +1,21 @@
+
+[provider_cfg]
+source = F:\Data\ILSVRC2012_img_val_raw_big
+batch_size = 100
+metadata_file = F:\Data\ImageNet_2012_metadata\imagenet_raw_metadata_val.bin
+cache_data = 1
+random_shuffle = 0
+
+entries = image1, label1
+
+[image1]
+type = image
+
+batch_img_size = 224
+crop_type = 3
+crop_ratio = 0.875
+channel_num = 3
+mean_file = ImageNet_1000_scale224_mean.xml
+
+[label1]
+type = label

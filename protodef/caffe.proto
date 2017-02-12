@@ -1,0 +1,698 @@
+
+package caffepro;
+
+message BlobProto {
+  optional int32 num = 1 [default = 0];
+  optional int32 channels = 2 [default = 0];
+  optional int32 height = 3 [default = 0];
+  optional int32 width = 4 [default = 0];
+  repeated float data = 5 [packed=true];
+  repeated float diff = 6 [packed=true];
+}
+
+// The BlobProtoVector is simply a way to pass multiple blobproto instances
+// around.
+message BlobProtoVector {
+  repeated BlobProto blobs = 1;
+}
+
+message Datum {
+  optional int32 channels = 1;
+  optional int32 height = 2;
+  optional int32 width = 3;
+  // the actual image data, in bytes
+  optional bytes data = 4;
+  optional int32 label = 5;
+  // Optionally, the datum could also hold float data.
+  repeated float float_data = 6;
+}
+
+message FillerParameter {
+  // The filler type.
+  optional string type = 1 [default = 'constant'];
+  optional float value = 2 [default = 0]; // the value in constant filler
+  optional float min = 3 [default = 0]; // the min value in uniform filler
+  optional float max = 4 [default = 1]; // the max value in uniform filler
+  optional float mean = 5 [default = 0]; // the mean value in gaussian filler
+  optional float std = 6 [default = 1]; // the std value in gaussian filler
+}
+
+message LayerParameter {
+  optional string name = 1; // the layer name
+  optional string type = 2; // the string to specify the layer type
+
+ // The blobs containing the numeric parameters of the layer
+  repeated BlobProto blobs = 3;
+  // The ratio that is multiplied on the global learning rate. If you want to
+  // set the learning ratio for one blob, you need to set it for all blobs.
+  repeated float blobs_lr = 4;
+  // The weight decay that is multiplied on the global weight decay.
+  repeated float weight_decay = 5;
+
+  // Copy blobs from which layer
+  repeated string blob_source_layer = 6;
+
+  // Parameters for particular layer types.
+  optional ConcatParameter concat_param = 8;
+  optional ConvolutionParameter conv_param = 9;
+  optional DataParameter_BigFile data_bigfile_param = 11;
+  optional DropoutParameter dropout_param = 12;
+  optional InfogainLossParameter infogain_loss_param = 16;
+  optional InnerProductParameter inner_product_param = 17;
+  optional LRNParameter lrn_param = 18;
+  optional PoolingParameter pool_param = 19;
+  optional PowerParameter power_param = 20;
+
+  optional PaddingParameter padding_param = 23;
+  optional SPMParameter spm_param = 24;
+
+  optional int32 gpu_id = 30 [default = -1];
+  optional GPUSplitParameter gpu_split = 31;
+
+  optional LossParameter loss_param = 34;
+
+  optional bool record = 35 [default = false];
+  optional ReluParameter relu_param = 36;
+  optional LearnableLeakReluParameter learnable_leak_relu_param = 37;
+
+  enum UpdateMethod {
+		NORMAL = 0;
+		ADAGRAD = 1;
+		ADAGRAD_RECORD_ONLY = 2;
+  }
+
+  repeated UpdateMethod update_method = 38;
+
+  optional BatchNormalizationParameter batch_norm_param = 40;
+  optional bool record_internel = 41 [default = false];
+  optional EltwiseSumParameter eltwise_sum_param = 44;
+  optional ClsLocLossParameter clsloc_loss_param = 48;
+  optional AnchorParameter anchor_param = 49;
+
+  optional GridGeneratorParameter grid_generator_param = 52;
+  optional DataEntryParameter data_entry_param = 53;
+  optional SampleParameter sample_param = 54;
+  optional string share_weights = 55;
+
+  optional ExpParameter exp_param = 56;
+  optional BoundParameter bound_param = 57;
+  optional ClusterParameter cluster_param = 58;
+  optional OnlineKMeansParameter online_kmeans_param = 59;
+
+  optional CorrelationParameter correlation_param = 60;
+  optional WeightParameter weight_param = 61;
+
+  optional ScaleBiasParameter scalebias_param = 62;
+
+  optional CropParameter crop_param = 63;
+  optional ReduceDimParameter reduce_dim_param = 64;
+  optional FlipParameter flip_param = 65;
+  optional StepGateParameter step_gate_param = 66;
+  optional HouseholderParameter householder_param = 67;
+  optional InstanceSampleParameter instance_sample_param = 68;
+  optional MatrixMulParameter matrix_mul_param = 69;
+  optional MatrixMulStackParameter matrix_mul_stack_param = 70;
+  optional TransposeParameter transpose_param = 71;
+  optional ReshapeParameter reshape_param = 72;
+  optional LearnableDropoutParameter learnable_dropout_param = 73;
+  optional DimInnerProductParameter dim_innerproduct_param = 74;
+  optional SoftthrParameter softthr_param = 75;
+  optional DropoutParameter dropoutsame_param = 76;
+  optional SoftMaxLossOHEMParameter softmaxlossohem_param = 77;
+  optional SoftMaxOHEMParameter softmaxohem_param = 78;
+  optional SoftMaxOHEMSplitParameter softmaxohemsplit_param = 79;
+  optional DiagOperationParameter diag_operation_param = 80;
+}
+
+// Message that stores parameters used by ClusterLossLayer
+message ClusterParameter {
+	required int32 num_centers = 1;
+	optional FillerParameter weight_filler = 2;
+}
+
+// Message that stores parameters used by OnlineKMeansLayer
+message OnlineKMeansParameter {
+	required int32 update_interval = 1;
+	required int32 update_iters = 2;
+}
+
+// Message that stores parameters used by EltwiseSumLayer
+message EltwiseSumParameter {
+	repeated float coeff = 1;
+}
+
+// Message that stores parameters used by ReluLayer
+message ReluParameter {
+	optional float relu_leak = 1 [default = 0];
+}
+
+// Message that stores parameters used by LearnableLeakReluLayer
+message LearnableLeakReluParameter {
+	enum ShareParamMethod {
+		CHANNEL = 0;
+		ALL = 1;
+	}
+	required FillerParameter relu_leak_param = 1;
+	required ShareParamMethod share_param = 2;
+	optional bool apply_bound = 3 [default = true];
+	optional float bound_upper = 4 [default = 1];
+	optional float bound_lower = 5 [default = 0];
+}
+
+// Message that stores parameters used by ExpLayer
+message ExpParameter {
+	optional float slope = 1 [default = 1];
+}
+
+// Message that stores parameters used by BoundLayer
+message BoundParameter {
+	required float max_value = 1;
+	required float min_value = 2;
+}
+
+message BatchNormalizationParameter {
+	required FillerParameter scale_filler = 1;
+	required FillerParameter shift_filler = 2;
+
+	enum RecordOption {
+		NOT_RECORD = 0;
+		RECORD = 1;
+		USE_RECORD_NORM = 2;
+		NOT_CALC = 3; // only for validation use
+	}
+
+	optional RecordOption record_option = 3 [default = NOT_RECORD];
+	optional float sliding_window_eval_coeff = 4 [default = -1];
+	optional bool keep_mean = 5 [default = false];
+}
+
+// Message that stores parameters used by GPUSplitLayer
+message GPUSplitParameter {
+	repeated int32 split_minibatch = 1;
+	repeated int32 split_gpu_id = 2;
+}
+
+// Message that stores parameters used by ConcatLayer
+message ConcatParameter {
+  // Concat Layer needs to specify the dimension along the concat will happen,
+  // the other dimensions must be the same for all the bottom blobs
+  // By default it will concatenate blobs along channels dimension
+  optional uint32 concat_dim = 1 [default = 1];
+}
+
+// Message that stores parameters used by GridGeneratorLayer
+message GridGeneratorParameter {
+	required string method = 1;
+	enum GridSizeOption {
+		RELATIVE = 0;
+		ABSOLUTE = 1;
+	}
+	optional GridSizeOption grid_size = 2 [default = RELATIVE];
+	optional float scale_width = 3 [default = 1];
+	optional float scale_height = 4 [default = 1];
+}
+
+// Message that stores parameters used by SampleLayer
+message SampleParameter {
+	enum ConcatOutputOption {
+		CHANNEL = 0;
+		NUM = 1;
+	}
+	optional ConcatOutputOption concat_output = 1 [default = CHANNEL];
+}
+
+// Message that stores parameters used by Anchor-related layers
+message AnchorParameter {
+  required int32 spatial_width = 1;
+  required int32 spatial_height = 2;
+  repeated float central_scale = 3;
+  optional float spatial_start = 4;
+  optional float spatial_step = 5;
+  repeated float aspect_ratio = 6;
+}
+
+// Message that stores parameters used by ConvolutionLayer
+message ConvolutionParameter {
+  optional uint32 num_output = 1; // The number of outputs for the layer
+  optional bool bias_term = 2 [default = true]; // whether to have bias terms
+  optional int32 pad = 3 [default = 0]; // The padding size
+  optional uint32 kernel_size = 4; // The kernel size
+  optional uint32 group = 5 [default = 1]; // The group size for group conv
+  optional uint32 stride = 6 [default = 1]; // The stride
+  optional FillerParameter weight_filler = 7; // The filler for the weight
+  optional FillerParameter bias_filler = 8; // The filler for the bias
+  optional bool size_floor = 9 [default = true]; // output size with floor or ceil
+  repeated uint32 block_calc = 10; // how many instances calculated together
+  optional bool use_cudnn = 11 [default = false]; // whether to use CUDNN
+  optional int32 out_width = 12 [default = 0]; // specify output width, 0 for autocalc
+  optional int32 out_height = 13 [default = 0]; // specify output height, 0 for autocalc
+  optional int32 pad_x = 14 [default = 0];
+  optional int32 pad_y = 15 [default = 0];
+  optional int32 kernel_size_x = 16 [default = 0];
+  optional int32 kernel_size_y = 17 [default = 0];
+  optional int32 stride_x = 18 [default = 1];
+  optional int32 stride_y = 19 [default = 1];
+}
+
+// Message that stores parameters used by CorrelationLayer
+message CorrelationParameter {
+  optional bool bias_term = 2 [default = true]; // whether to have bias terms
+  optional int32 pad = 3 [default = 0]; // The padding size
+  optional uint32 group = 5 [default = 1]; // The group size for group conv
+  optional uint32 stride = 6 [default = 1]; // The stride
+  optional FillerParameter bias_filler = 8; // The filler for the bias
+  optional bool size_floor = 9 [default = true]; // output size with floor or ceil
+  repeated uint32 block_calc = 10; // how many instances calculated together
+  optional int32 out_width = 12 [default = 0]; // specify output width, 0 for autocalc
+  optional int32 out_height = 13 [default = 0]; // specify output height, 0 for autocalc
+  optional int32 pad_x = 14 [default = 0];
+  optional int32 pad_y = 15 [default = 0];
+  optional int32 stride_x = 18 [default = 1];
+  optional int32 stride_y = 19 [default = 1];
+}
+
+// Message that stores parameters used by WeightLayer
+message WeightParameter {
+	repeated uint32 weight_dim = 1;
+	optional FillerParameter weight_filler = 2;
+}
+
+message DataProcesser
+{
+	required string processer_type = 1;
+	repeated int32 binding_output_index = 2;
+
+	// parameters
+	repeated float threshold = 3;
+	repeated float alpha = 4;
+	repeated float beta = 5;
+
+	repeated string method = 6;
+}
+
+// Message that stores parameters used by DataLayer_BigFile
+message DataParameter_BigFile {
+  // Specify the data source.
+  optional string source = 1;
+  // For data pre-processing, we can do simple scaling and subtracting the
+  // data mean, if provided. Note that the mean subtraction is always carried
+  // out before scaling.
+  optional float scale = 2 [default = 1];
+  optional string mean_file = 3;
+ // For data layers, specify the batch size.
+  optional uint32 batch_size = 4;
+  // For data layers, specify if we would like resize an image to generate input for cnn.
+  optional uint32 batch_img_size = 5 [default = 0];
+  // For data layers, specify the image channel num for one or multi output Blob
+  repeated uint32 channel_num = 6;
+  // For data_bigfile, specify how we crop input data. 1 for CropType_Random, 2 for CropType_10View, 3 for CropType_Center
+  optional uint32 crop_type = 7 [default = 0];
+  // For data_bigfile, we will crop a square area with size of the cropratio * min(img.width, img.height)
+  optional float crop_ratio = 8 [default = 1];
+  // for big_file, color shift matrix
+  optional string color_kl_dir = 9;
+  // for data extend
+
+  optional bool random_shuffle = 11 [default = true]; // random shuffle data each epoch
+
+  // for training with objects windows given
+  optional float overlap_thres = 12 [default = 0];
+
+  optional string object_windows_dir = 13;
+
+  optional float crop_ratio_upperbound = 14 [default = -1];
+  optional float crop_ratio_lowerbound = 15 [default = -1];
+
+  enum InterpolationType
+  {
+		Bilinear = 0;
+		Bicubic = 1;
+		Lanczos = 2;
+  }
+
+  repeated InterpolationType interpolation = 16;
+  optional float aspect_ratio_variation = 17 [default = 0];
+
+  enum ScaleJitterType
+  {
+		UniRatio = 0;
+		UniLength = 1;
+		UniArea = 2;
+		UniAreaV2 = 3;
+  }
+
+  optional ScaleJitterType scale_jitter_type = 18 [default = UniRatio];
+
+  repeated DataProcesser additional_data_processer = 19;
+
+  optional bool cache_data = 20 [default = true];
+  optional string multilabel_def_file = 21;
+
+  optional string metadata_file = 22;
+  optional float random_crop_overlap_threshold = 23 [default = 0];
+
+  enum CropPreference
+  {
+		IoCThres = 0;
+		IoUMax = 1;
+		IoUThres = 2;
+		AnchorMaxThres = 3;
+  }
+  optional CropPreference crop_preference = 24 [default = IoCThres];
+
+  optional int32 crop_dim1_segs = 25;
+  optional int32 crop_dim2_segs = 26;
+  optional string crop_box_file = 27;
+
+  optional float rcnn_pad = 28;
+}
+
+// Message that stores parameters used by DataEntryLayer
+message DataEntryParameter {
+	required string entry_name = 1;
+	optional int32 entry_index = 2 [default = 0];
+}
+
+// Message that stores parameters used by DropoutLayer
+message DropoutParameter {
+  optional float dropout_ratio = 1 [default = 0.5]; // dropout ratio
+  optional bool force_random = 2 [default = false];
+  optional bool force_same = 3 [default = false];
+}
+
+// Message that stores parameters used by PaddingLayer
+message PaddingParameter {
+  optional uint32 pad = 1 [default = 0]; // The padding size
+}
+
+// Message that stores parameters InfogainLossLayer
+message InfogainLossParameter {
+  // Specify the infogain matrix source.
+  optional string source = 1;
+}
+
+// Message that stores parameters for loss layers
+message LossParameter {
+  optional float coeff = 1 [default = 1];
+  optional bool display_result = 2 [default = true];
+}
+
+message ClsLocLossParameter {
+  optional float cls_coeff = 1 [default = 1];
+  optional float loc_coeff = 2 [default = 1];
+  enum LocType {
+    PCR = 0;
+    SCR = 1;
+	USER_DEFINED = 2;
+  }
+  optional LocType loc_type = 3 [default = PCR];
+  optional string user_def_file = 4;
+  enum LossTransform {
+	LTRB = 0;
+	CX_CY_LOGW_LOGH = 1;
+  }
+  optional LossTransform loss_transform = 5 [default = LTRB];
+
+  optional float assign_reject_iou = 6 [default = 0.2];
+  optional float cls_pos_iou = 7 [default = 0.5];
+  optional float cls_neg_iou = 8 [default = 0.2];
+  optional bool prediction_box_classification = 9 [default = false];
+  optional bool auto_spatial_anchor = 10 [default = false];
+  optional int32 expected_pos_num = 11 [default = -1];
+  optional int32 expected_neg_num = 12 [default = -1];
+}
+
+// Message that stores parameters used by InnerProductLayer
+message InnerProductParameter {
+  optional uint32 num_output = 1; // The number of outputs for the layer
+  optional bool bias_term = 2 [default = true]; // whether to have bias terms
+  optional FillerParameter weight_filler = 3; // The filler for the weight
+  optional FillerParameter bias_filler = 4; // The filler for the bias
+  optional bool update_inplace = 5 [default = false]; // Whether to update diff inplace (so that save memory)
+}
+
+// Message that stores parameters used by LRNLayer
+message LRNParameter {
+  optional uint32 local_size = 1 [default = 5];
+  optional float alpha = 2 [default = 1.];
+  optional float beta = 3 [default = 0.75];
+  enum NormRegion {
+    ACROSS_CHANNELS = 0;
+    WITHIN_CHANNEL = 1;
+  }
+  optional NormRegion norm_region = 4 [default = ACROSS_CHANNELS];
+}
+
+// Message that stores parameters used by PoolingLayer
+message PoolingParameter {
+  enum PoolMethod {
+    MAX = 0;
+    AVE = 1;
+    STOCHASTIC = 2;
+  }
+  optional PoolMethod pool = 1 [default = MAX]; // The pooling method
+  optional uint32 kernel_size = 2; // The kernel size
+  optional uint32 stride = 3 [default = 1]; // The stride
+  optional bool size_floor = 4 [default = false]; // output size with floor or ceil
+  optional int32 pad = 5 [default = 0]; // pad
+
+  optional int32 pad_x = 6 [default = 0];
+  optional int32 pad_y = 7 [default = 0];
+  optional int32 kernel_size_x = 8 [default = 0];
+  optional int32 kernel_size_y = 9 [default = 0];
+  optional int32 stride_x = 10 [default = 1];
+  optional int32 stride_y = 11 [default = 1];
+}
+
+// Message that stores parameters used by PoolingLayer
+message SPMParameter {
+  enum PoolMethod {
+    MAX = 0;
+    AVE = 1;
+    STOCHASTIC = 2;
+  }
+  optional PoolMethod pool = 1 [default = MAX]; // The pooling method
+  optional uint32 cell_x = 2; // x cell number
+  optional uint32 cell_y = 3; // y cell number
+}
+
+// Message that stores parameters used by PowerLayer
+message PowerParameter {
+  // PowerLayer computes outputs y = (shift + scale * x) ^ power.
+  optional float power = 1 [default = 1.0];
+  optional float scale = 2 [default = 1.0];
+  optional float shift = 3 [default = 0.0];
+}
+
+message LayerConnection {
+  optional LayerParameter layer = 1; // the layer parameter
+  repeated string bottom = 2; // the name of the bottom blobs
+  repeated string top = 3; // the name of the top blobs
+}
+
+message NetParameter {
+  optional string name = 1; // consider giving the network a name
+  repeated LayerConnection layers = 2; // a bunch of layers.
+  // The input blobs to the network.
+  repeated string input = 3;
+  // The dim of the input blobs. For each input blob there should be four
+  // values specifying the num, channels, height and width of the input blob.
+  // Thus, there should be a total of (4 * #input) numbers.
+  repeated int32 input_dim = 4;
+  // Whether the network will force every layer to carry out backward operation.
+  // If set False, then whether to carry out backward is determined
+  // automatically according to the net structure and learning rates.
+  optional bool force_backward = 5 [ default = false ];
+  optional string config_file = 6;
+  optional string data_provider_name = 7;
+}
+
+message SolverParameter {
+  optional string train_net = 1; // The proto file for the training net.
+  optional string test_net = 2; // The proto file for the testing net.
+  // The number of iterations for each testing phase.
+  optional int32 test_iter = 3 [ default = 0 ];
+  // The number of iterations between two testing phases.
+  optional int32 test_interval = 4 [ default = 0 ];
+  optional float base_lr = 5; // The base learning rate
+  // the number of iterations between displaying info. If display = 0, no info
+  // will be displayed.
+  optional int32 display = 6;
+  optional int32 max_iter = 7; // the maximum number of iterations
+  optional string lr_policy = 8; // The learning rate decay policy.
+  optional float gamma = 9; // The parameter to compute the learning rate.
+  optional float power = 10; // The parameter to compute the learning rate.
+  optional float momentum = 11; // The momentum value.
+  optional float weight_decay = 12; // The weight decay.
+  optional int32 stepsize = 13; // the stepsize for learning rate policy "step"
+  optional int32 snapshot = 14 [default = 0]; // The snapshot interval
+  optional string snapshot_prefix = 15; // The prefix for the snapshot.
+  // whether to snapshot diff in the results or not. Snapshotting diff will help
+  // debugging but the final protocol buffer size will be much larger.
+  optional bool snapshot_diff = 16 [ default = false];
+  // the mode solver will use: 0 for CPU and 1 for GPU. Use GPU in default.
+  optional int32 solver_mode = 17 [default = 1];
+  optional int32 device_id = 18 [default = 0];
+  repeated float vstep_lr = 19; // lr for "vstep"
+  repeated int32 vstep_size = 20; // step size for "vstep"
+
+  optional int32 num_threads = 21 [default = 0];
+  optional int32 train_primary_output_index = 22 [default = 0];
+  optional int32 test_primary_output_index = 23 [default = 0];
+  optional int32 update_interval = 24 [default = 1];
+
+  optional string ohem_net = 25; // The proto file for the ohem net.
+
+  // record method
+  optional int32 dump_interval = 26 [default = 0];
+
+  // sim ssgd
+  optional int32 sim_update_interval = 27 [default = 1];
+
+  // data split
+  optional bool data_split = 28 [default = false];
+
+  // bmuf
+  optional string bmuf_method = 29;
+  optional float bmuf_lr = 30 [default = 1];
+  optional float bmuf_momentum = 31 [default = 0];
+  optional int32 bmuf_interval = 32 [default = 1];
+  
+}
+
+// A message that stores the solver snapshots
+message SolverState {
+  optional int32 iter = 1; // The current iteration
+  optional string learned_net = 2; // The file that stores the learned net.
+  repeated BlobProto history = 3; // The history for sgd solvers
+}
+
+// Message that stores parameters used by ScaleBiasLayer
+message ScaleBiasParameter {
+  optional FillerParameter weight_filler = 1; // The filler for the weight
+  optional FillerParameter bias_filler = 2; // The filler for the bias
+}
+
+// Message that stores parameters used by CropLayer
+message CropParameter {
+  enum CropType {
+	ViewDense = 0;
+	View10 = 1;
+  }
+
+  required CropType crop_type = 1;
+  optional uint32 stride = 2 [default = 1];
+  required uint32 crop_width = 3;
+  required uint32 crop_height = 4;
+}
+
+// Message that stores parameters used by ReduceDimLayer
+message ReduceDimParameter {
+  enum ReduceType {
+	AVE = 0;
+	SUM = 1;
+  }
+  required uint32 dim = 1;
+  optional uint32 group = 2 [default = 1];
+  required ReduceType reduce_type = 3 [default = AVE];
+}
+
+// Message that stores parameters used by FlipLayer
+message FlipParameter {
+  optional bool keep_original = 1 [default = true];
+}
+
+// Message that stores parameters used by StepGateLayer
+message StepGateParameter {
+  required float init_value = 1;
+  required float step_value = 2;
+  required float max_value = 3;
+  optional bool keep_backward = 4 [default = false];
+  optional bool keep_forward = 5 [default = false];
+  optional uint32 start_iter = 6;
+}
+
+// Message that stores parameters used by HouseholderLayer
+message HouseholderParameter {
+  optional uint32 source = 1 [default = 0];
+}
+
+// Message that stores parameters used by InstanceSampleLayer
+message InstanceSampleParameter {
+  enum SampleMethod {
+	SEQ = 0;
+	RAND = 1;
+  }
+  optional SampleMethod sample_method = 1 [default = SEQ];
+  required uint32 num = 2;
+}
+
+// Message that stores parameters used by MatrixMulLayer
+message MatrixMulParameter {
+  optional bool trans_A = 1 [default = false];
+  optional bool trans_B = 2 [default = true];
+}
+
+// Message that stores parameters used by MatrixMulStackLayer
+message MatrixMulStackParameter {
+  required uint32 num = 1;
+  optional bool trans_odd = 2 [default = false];
+  optional bool trans_even = 3 [default = true];
+}
+
+// Message that stores parameters used by TransposeLayer
+message TransposeParameter {
+  required uint32 lead_dim = 1;
+  repeated int32 output_dims = 2;
+}
+
+// Message that stores parameters used by ReshapeLayer
+message ReshapeParameter {
+  repeated int32 dims = 1;
+}
+
+// Message that stores parameters used by LearnableDropoutLayer
+message LearnableDropoutParameter {
+  optional float init_value = 1 [default = 0];
+}
+
+// Message that stores parameters used by DimInnerProductLayer
+message DimInnerProductParameter {
+  required uint32 dim = 1;
+}
+
+// Message that stores parameters used by SoftthrLayer
+message SoftthrParameter {
+	optional float softthr_thr = 1 [default = 0.1];
+}
+
+// Message that stores parameters used by DropoutsameLayer
+message DropoutsameParameter {
+  optional float dropout_ratio = 1 [default = 0.5]; // dropout ratio
+  optional bool force_random = 2 [default = false];
+}
+
+// Message that stores parameters used by DiagOperationLayer
+message DiagOperationParameter {
+  optional float scale = 1 [default = 1];
+  optional float shift = 2 [default = 0];
+}
+
+// Message that stores parameters used by SoftMaxLossOHEMParameter
+message SoftMaxLossOHEMParameter {
+  optional int32 ohem_size = 1 [default = 64];
+  optional bool force_random = 2 [default = false];
+}
+
+// Message that stores parameters used by SoftMaxOHEMParameter
+message SoftMaxOHEMParameter {
+  optional int32 ohem_size = 1 [default = 64];
+  optional bool force_random = 2 [default = false];
+  optional bool use_max_loss = 3 [default = false];
+}
+
+message SoftMaxOHEMSplitParameter {
+  optional int32 ohem_size = 1 [default = 64];
+  optional bool force_random = 2 [default = false];
+  optional bool use_max_loss = 3 [default = false];
+}

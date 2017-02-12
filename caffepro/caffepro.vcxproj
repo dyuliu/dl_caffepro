@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\caffepro\caffepro.h" />
+    <ClInclude Include="include\caffepro\context\caffepro_context.h" />
+    <ClInclude Include="include\caffepro\context\common_names.h" />
+    <ClInclude Include="include\caffepro\context\device_context.h" />
+    <ClInclude Include="include\caffepro\context\event_manager.h" />
+    <ClInclude Include="include\caffepro\context\hook_manager.h" />
+    <ClInclude Include="include\caffepro\context\memory\device_memory_manager.h" />
+    <ClInclude Include="include\caffepro\context\memory\memory_manager.h" />
+    <ClInclude Include="include\caffepro\context\memory\syncd_memory.h" />
+    <ClInclude Include="include\caffepro\data\data_accessors\data_accessors.h" />
+    <ClInclude Include="include\caffepro\data\data_accessors\sequential_accessor.h" />
+    <ClInclude Include="include\caffepro\data\data_accessors\sequential_accessor_ssgd.h" />
+    <ClInclude Include="include\caffepro\data\data_accessors\sequential_proposal_accessor.h" />
+    <ClInclude Include="include\caffepro\data\data_accessors\sequential_rank_accessor.h" />
+    <ClInclude Include="include\caffepro\data\data_containers\data_bigfile_container.h" />
+    <ClInclude Include="include\caffepro\data\data_containers\data_containers.h" />
+    <ClInclude Include="include\caffepro\data\data_entries\data_entries.h" />
+    <ClInclude Include="include\caffepro\data\data_entries\image_entry.h" />
+    <ClInclude Include="include\caffepro\data\data_entries\image_sr_entry.h" />
+    <ClInclude Include="include\caffepro\data\data_entries\label_entry.h" />
+    <ClInclude Include="include\caffepro\data\data_entries\rcnn_entry.h" />
+    <ClInclude Include="include\caffepro\data\data_entries\rfcn_entry.h" />
+    <ClInclude Include="include\caffepro\data\data_loaders\box_proposal_loader.h" />
+    <ClInclude Include="include\caffepro\data\data_loaders\data_bigfile_loader.h" />
+    <ClInclude Include="include\caffepro\data\data_loaders\data_loaders.h" />
+    <ClInclude Include="include\caffepro\data\data_loaders\kl_data_loader.h" />
+    <ClInclude Include="include\caffepro\data\data_loaders\multilabel_loader.h" />
+    <ClInclude Include="include\caffepro\hooks\hook_triggers.h" />
+    <ClInclude Include="include\caffepro\hooks\save_feature_handler.h" />
+    <ClInclude Include="include\caffepro\layers\accuracy_layer.h" />
+    <ClInclude Include="include\caffepro\layers\anchor_loc_loss_ex_layer.h" />
+    <ClInclude Include="include\caffepro\layers\batch_norm_layer.h" />
+    <ClInclude Include="include\caffepro\layers\birelu_layer.h" />
+    <ClInclude Include="include\caffepro\layers\black_hole_layer.h" />
+    <ClInclude Include="include\caffepro\layers\bound_layer.h" />
+    <ClInclude Include="include\caffepro\layers\box_pool_layer.h" />
+    <ClInclude Include="include\caffepro\layers\box_regression_layer.h" />
+    <ClInclude Include="include\caffepro\layers\cluster_loss_layer.h" />
+    <ClInclude Include="include\caffepro\layers\concat_layer.h" />
+    <ClInclude Include="include\caffepro\layers\conv_layer.h" />
+    <ClInclude Include="include\caffepro\layers\correlation_layer.h" />
+    <ClInclude Include="include\caffepro\layers\crop_layer.h" />
+    <ClInclude Include="include\caffepro\layers\data_bigfile_layer.h" />
+    <ClInclude Include="include\caffepro\layers\data_entry_layer.h" />
+    <ClInclude Include="include\caffepro\layers\diag4d_operation_layer.h" />
+    <ClInclude Include="include\caffepro\layers\diag_operation_layer.h" />
+    <ClInclude Include="include\caffepro\layers\dimshuffle_layer.h" />
+    <ClInclude Include="include\caffepro\layers\dim_innerproduct_layer.h" />
+    <ClInclude Include="include\caffepro\layers\dropoutsame_layer.h" />
+    <ClInclude Include="include\caffepro\layers\dropout_layer.h" />
+    <ClInclude Include="include\caffepro\layers\eltwise_amax_layer.h" />
+    <ClInclude Include="include\caffepro\layers\eltwise_max_layer.h" />
+    <ClInclude Include="include\caffepro\layers\eltwise_prod_layer.h" />
+    <ClInclude Include="include\caffepro\layers\eltwise_sum_layer.h" />
+    <ClInclude Include="include\caffepro\layers\euclidean_loss_layer.h" />
+    <ClInclude Include="include\caffepro\layers\exp_layer.h" />
+    <ClInclude Include="include\caffepro\layers\flip_layer.h" />
+    <ClInclude Include="include\caffepro\layers\gpu_concat_layer.h" />
+    <ClInclude Include="include\caffepro\layers\grid_generator_layer.h" />
+    <ClInclude Include="include\caffepro\layers\householder_layer.h" />
+    <ClInclude Include="include\caffepro\layers\innerproduct_layer.h" />
+    <ClInclude Include="include\caffepro\layers\instance_sample_layer.h" />
+    <ClInclude Include="include\caffepro\layers\l2norm_layer.h" />
+    <ClInclude Include="include\caffepro\layers\learnable_dropout_layer.h" />
+    <ClInclude Include="include\caffepro\layers\l1norm_layer.h" />
+    <ClInclude Include="include\caffepro\layers\local_norm_layer.h" />
+    <ClInclude Include="include\caffepro\layers\lrn_layer.h" />
+    <ClInclude Include="include\caffepro\layers\matrix_mul_layer.h" />
+    <ClInclude Include="include\caffepro\layers\matrix_mul_stack_layer.h" />
+    <ClInclude Include="include\caffepro\layers\mean_norm_layer.h" />
+    <ClInclude Include="include\caffepro\layers\multilabel_sigmoid_loss_layer.h" />
+    <ClInclude Include="include\caffepro\layers\observer_layer.h" />
+    <ClInclude Include="include\caffepro\layers\online_kmeans_loss_layer.h" />
+    <ClInclude Include="include\caffepro\layers\padding_layer.h" />
+    <ClInclude Include="include\caffepro\layers\pooling_layer.h" />
+    <ClInclude Include="include\caffepro\layers\prelu_layer.h" />
+    <ClInclude Include="include\caffepro\layers\rand_select_layer.h" />
+    <ClInclude Include="include\caffepro\layers\rcnn_loss_layer.h" />
+    <ClInclude Include="include\caffepro\layers\reduce_dim_layer.h" />
+    <ClInclude Include="include\caffepro\layers\relu_layer.h" />
+    <ClInclude Include="include\caffepro\layers\resize_grid_layer.h" />
+    <ClInclude Include="include\caffepro\layers\runavg_batch_norm_layer.h" />
+    <ClInclude Include="include\caffepro\layers\sample_layer.h" />
+    <ClInclude Include="include\caffepro\layers\scalebias_layer.h" />
+    <ClInclude Include="include\caffepro\layers\sigmoid_layer.h" />
+    <ClInclude Include="include\caffepro\layers\slice_layer.h" />
+    <ClInclude Include="include\caffepro\layers\softmax_layer.h" />
+    <ClInclude Include="include\caffepro\layers\softmax_loss_layer.h" />
+    <ClInclude Include="include\caffepro\layers\softmax_loss_ohem_layer.h" />
+    <ClInclude Include="include\caffepro\layers\softmax_ohem_layer.h" />
+    <ClInclude Include="include\caffepro\layers\softmax_ohem_split_layer.h" />
+    <ClInclude Include="include\caffepro\layers\step_gate_layer.h" />
+    <ClInclude Include="include\caffepro\layers\sym_sigmoid_layer.h" />
+    <ClInclude Include="include\caffepro\layers\transpose4d_layer.h" />
+    <ClInclude Include="include\caffepro\layers\transpose_layer.h" />
+    <ClInclude Include="include\caffepro\layers\softthr_layer.h" />
+    <ClInclude Include="include\caffepro\layers\vision_layers.h" />
+    <ClInclude Include="include\caffepro\layers\weight_layer.h" />
+    <ClInclude Include="include\caffepro\math\cublas_debug.h" />
+    <ClInclude Include="include\caffepro\math\cublas_wrapper.h" />
+    <ClInclude Include="include\caffepro\math\reduce_wrapper.h" />
+    <ClInclude Include="include\caffepro\object_model\caffepro_layer.h" />
+    <ClInclude Include="include\caffepro\object_model\caffepro_net.h" />
+    <ClInclude Include="include\caffepro\object_model\caffepro_config.h" />
+    <ClInclude Include="include\caffepro\object_model\caffepro_object.h" />
+    <ClInclude Include="include\caffepro\object_model\data_model\batch_descriptor.h" />
+    <ClInclude Include="include\caffepro\object_model\data_model\data_accessor.h" />
+    <ClInclude Include="include\caffepro\object_model\data_model\data_container.h" />
+    <ClInclude Include="include\caffepro\object_model\data_model\data_entry.h" />
+    <ClInclude Include="include\caffepro\object_model\data_model\data_loader.h" />
+    <ClInclude Include="include\caffepro\object_model\data_model\data_provider.h" />
+    <ClInclude Include="include\caffepro\object_model\device_blob.h" />
+    <ClInclude Include="include\caffepro\object_model\node_blob.h" />
+    <ClInclude Include="include\caffepro\proto\analyzer.pb.h" />
+    <ClInclude Include="include\caffepro\proto\caffe.pb.h" />
+    <ClInclude Include="include\caffepro\proto\proto_io.h" />
+    <ClInclude Include="include\caffepro\solver\sgd_solver.h" />
+    <ClInclude Include="include\caffepro\solver\sgd_solver_benchmark.h" />
+    <ClInclude Include="include\caffepro\solver\sgd_solver_ohem.h" />
+    <ClInclude Include="include\caffepro\solver\sgd_solver_ohem_fast.h" />
+    <ClInclude Include="include\caffepro\solver\sgd_solver_rank_ohem.h" />
+    <ClInclude Include="include\caffepro\test_time\bn_postprocess.h" />
+    <ClInclude Include="include\caffepro\test_time\net_tester.h" />
+    <ClInclude Include="include\caffepro\test_time\net_test_extract.h" />
+    <ClInclude Include="include\caffepro\updater\bmuf_updater.h" />
+    <ClInclude Include="include\caffepro\updater\nesterov_updater.h" />
+    <ClInclude Include="include\caffepro\updater\record_sim_ssgd_updater.h" />
+    <ClInclude Include="include\caffepro\updater\sgd_updater.h" />
+    <ClInclude Include="include\caffepro\updater\sgd_updater_faster.h" />
+    <ClInclude Include="include\caffepro\updater\sgd_updater_legacy.h" />
+    <ClInclude Include="include\caffepro\updater\ssgd_sim_updater.h" />
+    <ClInclude Include="include\caffepro\updater\ssgd_updater.h" />
+    <ClInclude Include="include\caffepro\updater\updater.h" />
+    <ClInclude Include="include\caffepro\updater\updaters.h" />
+    <ClInclude Include="include\caffepro\utils\accuracy.h" />
+    <ClInclude Include="include\caffepro\utils\analyzer.h" />
+    <ClInclude Include="include\caffepro\utils\color_print.h" />
+    <ClInclude Include="include\caffepro\utils\data_utils\bigfile.h" />
+    <ClInclude Include="include\caffepro\utils\data_utils\binary_io.h" />
+    <ClInclude Include="include\caffepro\utils\data_utils\box.h" />
+    <ClInclude Include="include\caffepro\utils\data_utils\box_trans.h" />
+    <ClInclude Include="include\caffepro\utils\data_utils\color_kl.h" />
+    <ClInclude Include="include\caffepro\utils\data_utils\img_crop.h" />
+    <ClInclude Include="include\caffepro\utils\data_utils\xml_image.h" />
+    <ClInclude Include="include\caffepro\utils\filesystem.h" />
+    <ClInclude Include="include\caffepro\utils\filler.h" />
+    <ClInclude Include="include\caffepro\utils\mpi.h" />
+    <ClInclude Include="include\caffepro\utils\multinode.h" />
+    <ClInclude Include="include\caffepro\utils\random_helper.h" />
+    <ClInclude Include="include\caffepro\utils\string_uitls.h" />
+    <ClInclude Include="include\caffepro\utils\utils.h" />
+    <ClInclude Include="include\cudnn\cudnn.h" />
+    <ClInclude Include="include\glog\logging.h" />
+    <ClInclude Include="include\glog\log_severity.h" />
+    <ClInclude Include="include\glog\raw_logging.h" />
+    <ClInclude Include="include\glog\stl_logging.h" />
+    <ClInclude Include="include\glog\vlog_is_on.h" />
+    <ClInclude Include="include\pthread\pthread.h" />
+    <ClInclude Include="include\pthread\sched.h" />
+    <ClInclude Include="include\pthread\semaphore.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="include\caffepro\layers\rand_select_layer.cpp" />
+    <ClCompile Include="src\caffepro\context\caffepro_context.cpp" />
+    <ClCompile Include="src\caffepro\context\device_context.cpp" />
+    <ClCompile Include="src\caffepro\context\event_manager.cpp" />
+    <ClCompile Include="src\caffepro\context\hook_manager.cpp" />
+    <ClCompile Include="src\caffepro\context\memory\device_memory_manager.cpp" />
+    <ClCompile Include="src\caffepro\context\memory\memory_manager.cpp" />
+    <ClCompile Include="src\caffepro\context\memory\synced_memory.cpp" />
+    <ClCompile Include="src\caffepro\data\data_accessors\sequential_accessor.cpp" />
+    <ClCompile Include="src\caffepro\data\data_accessors\sequential_accessor_ssgd.cpp" />
+    <ClCompile Include="src\caffepro\data\data_accessors\sequential_proposal_accessor.cpp" />
+    <ClCompile Include="src\caffepro\data\data_containers\data_bigfile_container.cpp" />
+    <ClCompile Include="src\caffepro\data\data_entries\image_entry.cpp" />
+    <ClCompile Include="src\caffepro\data\data_entries\image_sr_entry.cpp" />
+    <ClCompile Include="src\caffepro\data\data_entries\label_entry.cpp" />
+    <ClCompile Include="src\caffepro\data\data_entries\rcnn_entry.cpp" />
+    <ClCompile Include="src\caffepro\data\data_entries\rfcn_entry.cpp" />
+    <ClCompile Include="src\caffepro\data\data_loaders\box_proposal_loader.cpp" />
+    <ClCompile Include="src\caffepro\data\data_loaders\data_bigfile_loader.cpp" />
+    <ClCompile Include="src\caffepro\data\data_loaders\kl_data_loader.cpp" />
+    <ClCompile Include="src\caffepro\data\data_loaders\multilabel_loader.cpp" />
+    <ClCompile Include="src\caffepro\data\data_provider_factory.cpp" />
+    <ClCompile Include="src\caffepro\hooks\save_feature_handler.cpp" />
+    <ClCompile Include="src\caffepro\layers\anchor_loc_loss_ex_layer.cpp" />
+    <ClCompile Include="src\caffepro\layers\concat_layer.cpp" />
+    <ClCompile Include="src\caffepro\layers\conv_layer.cpp" />
+    <ClCompile Include="src\caffepro\layers\correlation_layer.cpp" />
+    <ClCompile Include="src\caffepro\layers\data_bigfile_layer.cpp" />
+    <ClCompile Include="src\caffepro\layers\data_bigfile_layer.improcess.cpp" />
+    <ClCompile Include="src\caffepro\layers\data_bigfile_layer.init.cpp" />
+    <ClCompile Include="src\caffepro\layers\data_bigfile_layer.prefetch.cpp" />
+    <ClCompile Include="src\caffepro\layers\data_entry_layer.cpp" />
+    <ClCompile Include="src\caffepro\layers\eltwise_prod_layer.cpp" />
+    <ClCompile Include="src\caffepro\layers\eltwise_sum_layer.cpp" />
+    <ClCompile Include="src\caffepro\layers\exp_layer.cpp" />
+    <ClCompile Include="src\caffepro\layers\gpu_concat_layer.cpp" />
+    <ClCompile Include="src\caffepro\layers\innerproduct_layer.cpp" />
+    <ClCompile Include="src\caffepro\layers\layer_factory.cpp" />
+    <ClCompile Include="src\caffepro\layers\matrix_mul_layer.cpp" />
+    <ClCompile Include="src\caffepro\layers\matrix_mul_stack_layer.cpp" />
+    <ClCompile Include="src\caffepro\layers\multilabel_sigmoid_loss_layer.cpp" />
+    <ClCompile Include="src\caffepro\layers\observer_layer.cpp" />
+    <ClCompile Include="src\caffepro\layers\pooling_layer.cpp" />
+    <ClCompile Include="src\caffepro\layers\reduce_dim_layer.cpp" />
+    <CudaCompile Include="src\caffepro\layers\diag4d_operation_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\diag_operation_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\birelu_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\dimshuffle_layer.cu" />
+    <ClCompile Include="src\caffepro\layers\runavg_batch_norm_layer.cpp" />
+    <ClCompile Include="src\caffepro\layers\sequential_rank_accessor.cpp" />
+    <ClCompile Include="src\caffepro\layers\softmax_layer.cpp" />
+    <ClCompile Include="src\caffepro\layers\step_gate_layer.cpp" />
+    <ClCompile Include="src\caffepro\layers\transpose_layer.cpp" />
+    <ClCompile Include="src\caffepro\layers\weight_layer.cpp" />
+    <ClCompile Include="src\caffepro\math\cublas_debug.cpp" />
+    <ClCompile Include="src\caffepro\math\cublas_wrapper_float.cpp" />
+    <ClCompile Include="src\caffepro\object_model\caffepro_config.cpp" />
+    <ClCompile Include="src\caffepro\object_model\caffepro_layer.cpp" />
+    <ClCompile Include="src\caffepro\object_model\caffepro_net.cpp" />
+    <ClCompile Include="src\caffepro\object_model\data_model\batch_descriptor.cpp" />
+    <ClCompile Include="src\caffepro\object_model\data_model\data_container.cpp" />
+    <ClCompile Include="src\caffepro\object_model\data_model\data_entry.cpp" />
+    <ClCompile Include="src\caffepro\object_model\data_model\data_provider.cpp" />
+    <ClCompile Include="src\caffepro\object_model\device_blob.cpp" />
+    <ClCompile Include="src\caffepro\object_model\node_blob.cpp" />
+    <ClCompile Include="src\caffepro\proto\analyzer.pb.cc" />
+    <ClCompile Include="src\caffepro\proto\caffe.pb.cc" />
+    <ClCompile Include="src\caffepro\proto\proto_io.cpp" />
+    <ClCompile Include="src\caffepro\solver\sgd_solver.cpp" />
+    <ClCompile Include="src\caffepro\solver\sgd_solver_benchmark.cpp" />
+    <ClCompile Include="src\caffepro\solver\sgd_solver_ohem.cpp" />
+    <CudaCompile Include="src\caffepro\solver\sgd_solver_ohem_fast.cu" />
+    <ClCompile Include="src\caffepro\solver\sgd_solver_rank_ohem.cpp" />
+    <ClCompile Include="src\caffepro\test_time\bn_postprocess.cpp" />
+    <ClCompile Include="src\caffepro\test_time\net_tester.cpp" />
+    <ClCompile Include="src\caffepro\test_time\net_test_extract.cpp" />
+    <ClCompile Include="src\caffepro\updater\bmuf_updater.cpp" />
+    <ClCompile Include="src\caffepro\updater\nesterov_updater.cpp" />
+    <ClCompile Include="src\caffepro\updater\record_sim_ssgd_updater.cpp" />
+    <ClCompile Include="src\caffepro\updater\sgd_updater.cpp" />
+    <ClCompile Include="src\caffepro\updater\sgd_updater_faster.cpp" />
+    <ClCompile Include="src\caffepro\updater\sgd_updater_legacy.cpp" />
+    <ClCompile Include="src\caffepro\updater\ssgd_sim_updater.cpp" />
+    <ClCompile Include="src\caffepro\updater\ssgd_updater.cpp" />
+    <ClCompile Include="src\caffepro\updater\updater.cpp" />
+    <ClCompile Include="src\caffepro\utils\accuracy.cpp" />
+    <ClCompile Include="src\caffepro\utils\black_hole_layer.cpp" />
+    <ClCompile Include="src\caffepro\utils\data_utils\bigfile.cpp" />
+    <ClCompile Include="src\caffepro\utils\data_utils\box_trans.cpp" />
+    <ClCompile Include="src\caffepro\utils\data_utils\color_kl.cpp" />
+    <ClCompile Include="src\caffepro\utils\data_utils\xml_image.cpp" />
+    <ClCompile Include="src\caffepro\utils\filesystem.cpp" />
+    <ClCompile Include="src\caffepro\utils\filler.cpp" />
+    <ClCompile Include="src\caffepro\utils\multinode.cpp" />
+    <ClCompile Include="src\caffepro\utils\random_helper.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="src\caffepro\layers\accuracy.cu" />
+    <CudaCompile Include="src\caffepro\layers\batch_norm_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\bound_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\box_pool_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\box_regression_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\cluster_loss_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\crop_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\dim_innerproduct_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\dropout_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\eltwise_amax_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\eltwise_max_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\flip_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\grid_generator_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\householder_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\instance_sample_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\l2norm_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\learnable_dropout_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\dropoutsame_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\euclidean_loss_layer.cpp" />
+    <CudaCompile Include="src\caffepro\layers\l1norm_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\local_norm_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\lrn_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\mean_norm_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\online_kmeans_loss_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\padding_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\prelu_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\rcnn_loss_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\relu_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\resize_grid_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\sample_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\scalebias_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\sigmoid_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\slice_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\softmax_loss_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\sym_sigmoid_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\softmax_loss_ohem_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\softmax_ohem_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\softmax_ohem_split_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\softthr_layer.cu" />
+    <CudaCompile Include="src\caffepro\layers\transpose4d_layer.cu" />
+    <CudaCompile Include="src\caffepro\math\cublas_wrapper_float.cu" />
+    <CudaCompile Include="src\caffepro\math\reduce_wrapper.cu" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Caffepro.x64.Debug.user.props" />
+    <None Include="Caffepro.x64.Release.user.props" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9262C6AC-B3FA-46EA-937F-D0B511FE7E9A}</ProjectGuid>
+    <RootNamespace>caffepro</RootNamespace>
+    <ProjectName>caffepro</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 7.5.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)\include;$(SolutionDir)\dependency\include\boost_1_55_0;$(SolutionDir)\protobuf-2.4.1\src;$(SolutionDir)\dependency\include\opencv_2_49;$(SolutionDir)\dependency\include\mpi;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\dependency\lib\Debug;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(ProjectDir)\include;$(SolutionDir)\dependency\include\mpi;$(SolutionDir)\dependency\include\boost_1_55_0;$(SolutionDir)\protobuf-2.4.1\src;$(SolutionDir)\dependency\include\opencv_2_49;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\dependency\lib\Release;$(LibraryPath)</LibraryPath>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;WIN64;_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4251;4005;4267</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <OpenMPSupport>false</OpenMPSupport>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>cudart.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>echo copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"
+copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+    <CudaCompile>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+      <AdditionalCompilerOptions>/wd4819 /wd4251 /wd4267 /wd4244</AdditionalCompilerOptions>
+      <AdditionalOptions>-Xcudafe "--diag_suppress=exception_spec_override_incompat" -Xcudafe "--diag_suppress=field_without_dll_interface" -Xcudafe "--diag_suppress=partial_override"  -Xcudafe "--diag_suppress=code_is_unreachable" -Xcudafe "--diag_suppress=set_but_not_used" -Xcudafe "--diag_suppress=implicit_return_from_non_void_function" %(AdditionalOptions)</AdditionalOptions>
+      <CodeGeneration>compute_35,sm_35</CodeGeneration>
+    </CudaCompile>
+    <Lib>
+      <AdditionalDependencies>msmpi.lib;pthreadVC2_x64.lib;libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;WIN64;_CRT_SECURE_NO_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4251;4005;4267</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>cudart.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>echo copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"
+copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+    <CudaCompile>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+      <AdditionalCompilerOptions>/wd4819 /wd4251 /wd4267 /wd4244</AdditionalCompilerOptions>
+      <AdditionalOptions>-Xcudafe "--diag_suppress=exception_spec_override_incompat" -Xcudafe "--diag_suppress=field_without_dll_interface" -Xcudafe "--diag_suppress=partial_override"  -Xcudafe "--diag_suppress=code_is_unreachable" -Xcudafe "--diag_suppress=set_but_not_used" -Xcudafe "--diag_suppress=implicit_return_from_non_void_function" %(AdditionalOptions)</AdditionalOptions>
+      <CodeGeneration>compute_35,sm_35</CodeGeneration>
+    </CudaCompile>
+    <Lib>
+      <AdditionalDependencies>msmpi.lib;pthreadVC2_x64.lib;libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 7.5.targets" />
+  </ImportGroup>
+</Project>

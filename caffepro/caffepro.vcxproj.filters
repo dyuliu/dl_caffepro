@@ -1,0 +1,1099 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{3230db06-6597-4ab5-b85a-65bcc32d789a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{fdfd9acb-a580-4898-add7-67c54d969e26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro">
+      <UniqueIdentifier>{579cf92f-0392-4cd5-a47d-c0f58d257cf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\context">
+      <UniqueIdentifier>{2a2db564-43f2-4476-8f31-efcdbec43426}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro">
+      <UniqueIdentifier>{6c4332a0-6cb2-492b-8d31-603d84373f06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\context">
+      <UniqueIdentifier>{d6920133-ecaa-469c-9f4a-7940a8a47ecb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\context\memory">
+      <UniqueIdentifier>{eeb2eabb-8db5-4f3b-9645-8c8a7ee598db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\context\memory">
+      <UniqueIdentifier>{47ee929c-a493-4873-8ddc-947ae6ea5873}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\glog">
+      <UniqueIdentifier>{95276216-dcf2-4ca0-a31c-c7930d12d24e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\object_model">
+      <UniqueIdentifier>{af711215-1a1b-480a-bde3-f261fcfb2360}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\cudnn">
+      <UniqueIdentifier>{04e8d1c6-7108-4130-b332-7258c90e8673}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\object_model">
+      <UniqueIdentifier>{15ef56ee-1d28-4b8a-a254-381f7f039980}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\utils">
+      <UniqueIdentifier>{a04693da-be36-4469-82ba-abd40ed9287e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\layers">
+      <UniqueIdentifier>{64bd802d-267e-4e11-aa4d-6e9f67927160}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\layers">
+      <UniqueIdentifier>{eee182c4-6c4a-42b0-8adb-cc811ed54c99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\proto">
+      <UniqueIdentifier>{147f77e2-273d-4952-a74a-d3bdeefba422}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\proto">
+      <UniqueIdentifier>{c4b900ba-5965-4f0c-b911-3247b43befaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\math">
+      <UniqueIdentifier>{2f911aa1-6162-4ec9-96a6-590cc789b1c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\math">
+      <UniqueIdentifier>{29cbcafc-4178-4961-884f-9d0e29d7470e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\utils">
+      <UniqueIdentifier>{c7cfc7ce-153a-45e6-9ea5-d1fa19814742}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\layers\weight_layers">
+      <UniqueIdentifier>{3421fe17-1c68-4a50-adee-f13c6a958250}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\layers\weight_layers">
+      <UniqueIdentifier>{83234411-7b0d-4c7f-8d31-54a92e12dc07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\layers\resize_layers">
+      <UniqueIdentifier>{8d165344-0b25-4158-98b4-49ca502ac3e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\layers\resize_layers">
+      <UniqueIdentifier>{6510aa43-a282-42b6-b7fa-5673f0dda184}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\layers\neural_layers">
+      <UniqueIdentifier>{919a9f55-109b-4b0d-b1d4-7afe769424a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\layers\neural_layers">
+      <UniqueIdentifier>{834cebdc-35f1-47c5-84c6-5772c02f1c1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\layers\structure_layers">
+      <UniqueIdentifier>{549f16f7-8b35-48c5-953e-33be2a0f7bc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\layers\structure_layers">
+      <UniqueIdentifier>{8780196b-63d2-4219-a7b3-5a30ad320dfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\layers\loss_layers">
+      <UniqueIdentifier>{ab4556c2-af65-48ca-8f79-f4eda8ca363e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\layers\loss_layers">
+      <UniqueIdentifier>{12c1186b-c777-480d-9cf4-6461a670fe36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\layers\eltwise_layers">
+      <UniqueIdentifier>{2b172991-db75-450e-bfd9-e4e243bafe9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\layers\eltwise_layers">
+      <UniqueIdentifier>{5c09ea27-e962-4994-84ab-a5a75e2a388b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\layers\data_layers">
+      <UniqueIdentifier>{2bfb510a-4a18-459d-b4d2-15ddc1d737ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\utils\data_utils">
+      <UniqueIdentifier>{0e48a2a0-d4f6-4283-ad14-d0b19ab03519}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\utils\data_utils">
+      <UniqueIdentifier>{4e3823ae-c49f-473c-9984-72a8172074b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\layers\data_layers">
+      <UniqueIdentifier>{28ae5002-c424-4d71-b7dd-ba4a815dcd86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\pthread">
+      <UniqueIdentifier>{c3568aa6-b36d-4925-ba8c-2dc4488c8ef8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\updater">
+      <UniqueIdentifier>{4d885a69-5e03-4000-993c-8201e68bef0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\updater">
+      <UniqueIdentifier>{604a6f38-5fef-45e6-abbf-3abfed2a8e16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\solver">
+      <UniqueIdentifier>{375b2a25-4ad7-496a-9ab3-fe59c1d8a36d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\solver">
+      <UniqueIdentifier>{52b03ca5-68b5-4044-bad0-a1b6fb26c636}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\test_time">
+      <UniqueIdentifier>{318691c9-cde3-4c6d-a3cc-a58e868aa7c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\test_time">
+      <UniqueIdentifier>{c101b3c3-6e38-4bfd-882f-21c9b9043e49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\object_model\data_model">
+      <UniqueIdentifier>{4d3f1e4d-de5e-446a-a484-3660ba6e0eba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\object_model\data_model">
+      <UniqueIdentifier>{46bd4a71-c139-4fb4-a272-c0a96fdd500c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\data">
+      <UniqueIdentifier>{c142c087-4fbc-422a-9ca7-1dd51c4eb531}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\data\data_containers">
+      <UniqueIdentifier>{d8153c34-f28f-4d2a-9aaf-e51d1fbd1735}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\data">
+      <UniqueIdentifier>{fc70a173-7a0c-4239-8a57-5bb949eb50fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\data\data_containers">
+      <UniqueIdentifier>{cff7f35f-2a53-4ab4-bd39-11598f038dd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\data\data_loaders">
+      <UniqueIdentifier>{78743ff0-72df-4c57-b00b-2270b40f38fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\data\data_loaders">
+      <UniqueIdentifier>{fb041baf-ba88-4bda-8a7a-753f2b997fe0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\data\data_accessors">
+      <UniqueIdentifier>{269246c8-07b3-4e5f-951b-d6c6da131d87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\data\data_accessors">
+      <UniqueIdentifier>{7c149f7d-c18e-483a-bc87-7db518d55001}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\data\data_entries">
+      <UniqueIdentifier>{12a8204a-93f5-4b38-81be-1a5f20de2951}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\data\data_entries">
+      <UniqueIdentifier>{9452d417-ad25-4470-b6f1-e78f9c5fa84a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\layers\helper_layers">
+      <UniqueIdentifier>{fa89f432-8409-4518-a42c-7ced79b85186}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\layers\helper_layers">
+      <UniqueIdentifier>{1990c526-5bf0-4684-8e7e-9a12744be18e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\layers\norm_layers">
+      <UniqueIdentifier>{f89026c3-f354-4569-97cd-7ae0503af880}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\layers\norm_layers">
+      <UniqueIdentifier>{c61bca40-ee55-47d7-9995-01e958fc4a98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\hooks">
+      <UniqueIdentifier>{a238b0b9-d60a-4748-a7e0-7d26ed1d16c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\hooks">
+      <UniqueIdentifier>{dead4af8-ee7f-48e3-9e89-f175064dcac7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\layers\operation_layes">
+      <UniqueIdentifier>{a2e60c90-0f2f-4538-9455-41d7c77634cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\layers\operation_layers">
+      <UniqueIdentifier>{d3e645e7-41d8-452c-8de6-211ad68bea5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\caffepro\updater\ssgd">
+      <UniqueIdentifier>{f139316d-db98-4b08-9526-b7e048c03a89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\caffepro\updater\ssgd">
+      <UniqueIdentifier>{855ff86d-66a5-4328-8b83-740818d0742f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\caffepro\context\memory\memory_manager.h">
+      <Filter>include\caffepro\context\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\caffepro.h">
+      <Filter>include\caffepro</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\context\memory\device_memory_manager.h">
+      <Filter>include\caffepro\context\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="include\glog\log_severity.h">
+      <Filter>include\glog</Filter>
+    </ClInclude>
+    <ClInclude Include="include\glog\logging.h">
+      <Filter>include\glog</Filter>
+    </ClInclude>
+    <ClInclude Include="include\glog\raw_logging.h">
+      <Filter>include\glog</Filter>
+    </ClInclude>
+    <ClInclude Include="include\glog\stl_logging.h">
+      <Filter>include\glog</Filter>
+    </ClInclude>
+    <ClInclude Include="include\glog\vlog_is_on.h">
+      <Filter>include\glog</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\context\memory\syncd_memory.h">
+      <Filter>include\caffepro\context\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\context\caffepro_context.h">
+      <Filter>include\caffepro\context</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\context\device_context.h">
+      <Filter>include\caffepro\context</Filter>
+    </ClInclude>
+    <ClInclude Include="include\cudnn\cudnn.h">
+      <Filter>include\cudnn</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\object_model\caffepro_object.h">
+      <Filter>include\caffepro\object_model</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\object_model\device_blob.h">
+      <Filter>include\caffepro\object_model</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\object_model\node_blob.h">
+      <Filter>include\caffepro\object_model</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\object_model\caffepro_layer.h">
+      <Filter>include\caffepro\object_model</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\utils\utils.h">
+      <Filter>include\caffepro\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\vision_layers.h">
+      <Filter>include\caffepro\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\proto\caffe.pb.h">
+      <Filter>include\caffepro\proto</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\utils\filler.h">
+      <Filter>include\caffepro\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\math\cublas_wrapper.h">
+      <Filter>include\caffepro\math</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\conv_layer.h">
+      <Filter>include\caffepro\layers\weight_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\innerproduct_layer.h">
+      <Filter>include\caffepro\layers\weight_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\pooling_layer.h">
+      <Filter>include\caffepro\layers\resize_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\relu_layer.h">
+      <Filter>include\caffepro\layers\neural_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\gpu_concat_layer.h">
+      <Filter>include\caffepro\layers\structure_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\softmax_loss_layer.h">
+      <Filter>include\caffepro\layers\loss_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\softmax_layer.h">
+      <Filter>include\caffepro\layers\neural_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\dropout_layer.h">
+      <Filter>include\caffepro\layers\neural_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\object_model\caffepro_net.h">
+      <Filter>include\caffepro\object_model</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\proto\proto_io.h">
+      <Filter>include\caffepro\proto</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\eltwise_sum_layer.h">
+      <Filter>include\caffepro\layers\eltwise_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\data_bigfile_layer.h">
+      <Filter>include\caffepro\layers\data_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\utils\data_utils\bigfile.h">
+      <Filter>include\caffepro\utils\data_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\utils\data_utils\box.h">
+      <Filter>include\caffepro\utils\data_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\utils\data_utils\binary_io.h">
+      <Filter>include\caffepro\utils\data_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\context\event_manager.h">
+      <Filter>include\caffepro\context</Filter>
+    </ClInclude>
+    <ClInclude Include="include\pthread\pthread.h">
+      <Filter>include\pthread</Filter>
+    </ClInclude>
+    <ClInclude Include="include\pthread\sched.h">
+      <Filter>include\pthread</Filter>
+    </ClInclude>
+    <ClInclude Include="include\pthread\semaphore.h">
+      <Filter>include\pthread</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\utils\data_utils\color_kl.h">
+      <Filter>include\caffepro\utils\data_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\utils\random_helper.h">
+      <Filter>include\caffepro\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\utils\filesystem.h">
+      <Filter>include\caffepro\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\utils\data_utils\img_crop.h">
+      <Filter>include\caffepro\utils\data_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\utils\data_utils\xml_image.h">
+      <Filter>include\caffepro\utils\data_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\utils\string_uitls.h">
+      <Filter>include\caffepro\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\updater\updater.h">
+      <Filter>include\caffepro\updater</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\updater\sgd_updater.h">
+      <Filter>include\caffepro\updater</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\updater\sgd_updater_legacy.h">
+      <Filter>include\caffepro\updater</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\solver\sgd_solver.h">
+      <Filter>include\caffepro\solver</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\solver\sgd_solver_benchmark.h">
+      <Filter>include\caffepro\solver</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\concat_layer.h">
+      <Filter>include\caffepro\layers\structure_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\object_model\caffepro_config.h">
+      <Filter>include\caffepro\object_model</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\context\common_names.h">
+      <Filter>include\caffepro\context</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\utils\data_utils\box_trans.h">
+      <Filter>include\caffepro\utils\data_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\sigmoid_layer.h">
+      <Filter>include\caffepro\layers\neural_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\multilabel_sigmoid_loss_layer.h">
+      <Filter>include\caffepro\layers\loss_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\utils\accuracy.h">
+      <Filter>include\caffepro\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\black_hole_layer.h">
+      <Filter>include\caffepro\layers\structure_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\anchor_loc_loss_ex_layer.h">
+      <Filter>include\caffepro\layers\loss_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\test_time\bn_postprocess.h">
+      <Filter>include\caffepro\test_time</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\grid_generator_layer.h">
+      <Filter>include\caffepro\layers\resize_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\sample_layer.h">
+      <Filter>include\caffepro\layers\resize_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\object_model\data_model\data_provider.h">
+      <Filter>include\caffepro\object_model\data_model</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\object_model\data_model\data_container.h">
+      <Filter>include\caffepro\object_model\data_model</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\object_model\data_model\data_loader.h">
+      <Filter>include\caffepro\object_model\data_model</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\object_model\data_model\data_accessor.h">
+      <Filter>include\caffepro\object_model\data_model</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\object_model\data_model\data_entry.h">
+      <Filter>include\caffepro\object_model\data_model</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\object_model\data_model\batch_descriptor.h">
+      <Filter>include\caffepro\object_model\data_model</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\data\data_containers\data_bigfile_container.h">
+      <Filter>include\caffepro\data\data_containers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\data\data_loaders\data_bigfile_loader.h">
+      <Filter>include\caffepro\data\data_loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\data\data_loaders\box_proposal_loader.h">
+      <Filter>include\caffepro\data\data_loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\data\data_loaders\multilabel_loader.h">
+      <Filter>include\caffepro\data\data_loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\data\data_accessors\sequential_accessor.h">
+      <Filter>include\caffepro\data\data_accessors</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\data\data_loaders\kl_data_loader.h">
+      <Filter>include\caffepro\data\data_loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\data\data_entries\image_entry.h">
+      <Filter>include\caffepro\data\data_entries</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\data\data_entries\data_entries.h">
+      <Filter>include\caffepro\data\data_entries</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\data\data_loaders\data_loaders.h">
+      <Filter>include\caffepro\data\data_loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\data\data_accessors\data_accessors.h">
+      <Filter>include\caffepro\data\data_accessors</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\data_entry_layer.h">
+      <Filter>include\caffepro\layers\data_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\data\data_entries\label_entry.h">
+      <Filter>include\caffepro\data\data_entries</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\data\data_containers\data_containers.h">
+      <Filter>include\caffepro\data\data_containers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\data\data_entries\rcnn_entry.h">
+      <Filter>include\caffepro\data\data_entries</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\rcnn_loss_layer.h">
+      <Filter>include\caffepro\layers\loss_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\data\data_accessors\sequential_proposal_accessor.h">
+      <Filter>include\caffepro\data\data_accessors</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\box_pool_layer.h">
+      <Filter>include\caffepro\layers\resize_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\data\data_entries\rfcn_entry.h">
+      <Filter>include\caffepro\data\data_entries</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\box_regression_layer.h">
+      <Filter>include\caffepro\layers\loss_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\resize_grid_layer.h">
+      <Filter>include\caffepro\layers\resize_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\exp_layer.h">
+      <Filter>include\caffepro\layers\neural_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\observer_layer.h">
+      <Filter>include\caffepro\layers\helper_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\bound_layer.h">
+      <Filter>include\caffepro\layers\neural_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\cluster_loss_layer.h">
+      <Filter>include\caffepro\layers\loss_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\batch_norm_layer.h">
+      <Filter>include\caffepro\layers\norm_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\lrn_layer.h">
+      <Filter>include\caffepro\layers\norm_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\online_kmeans_loss_layer.h">
+      <Filter>include\caffepro\layers\loss_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\padding_layer.h">
+      <Filter>include\caffepro\layers\resize_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\test_time\net_tester.h">
+      <Filter>include\caffepro\test_time</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\math\reduce_wrapper.h">
+      <Filter>include\caffepro\math</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\weight_layer.h">
+      <Filter>include\caffepro\layers\weight_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\updater\sgd_updater_faster.h">
+      <Filter>include\caffepro\updater</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\updater\updaters.h">
+      <Filter>include\caffepro\updater</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\eltwise_prod_layer.h">
+      <Filter>include\caffepro\layers\eltwise_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\crop_layer.h">
+      <Filter>include\caffepro\layers\resize_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\accuracy_layer.h">
+      <Filter>include\caffepro\layers\loss_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\reduce_dim_layer.h">
+      <Filter>include\caffepro\layers\resize_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\context\hook_manager.h">
+      <Filter>include\caffepro\context</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\hooks\hook_triggers.h">
+      <Filter>include\caffepro\hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\hooks\save_feature_handler.h">
+      <Filter>include\caffepro\hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\step_gate_layer.h">
+      <Filter>include\caffepro\layers\neural_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\l2norm_layer.h">
+      <Filter>include\caffepro\layers\norm_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\eltwise_max_layer.h">
+      <Filter>include\caffepro\layers\eltwise_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\eltwise_amax_layer.h">
+      <Filter>include\caffepro\layers\eltwise_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\instance_sample_layer.h">
+      <Filter>include\caffepro\layers\resize_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\correlation_layer.h">
+      <Filter>include\caffepro\layers\operation_layes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\householder_layer.h">
+      <Filter>include\caffepro\layers\operation_layes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\flip_layer.h">
+      <Filter>include\caffepro\layers\operation_layes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\matrix_mul_layer.h">
+      <Filter>include\caffepro\layers\operation_layes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\matrix_mul_stack_layer.h">
+      <Filter>include\caffepro\layers\operation_layes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\transpose_layer.h">
+      <Filter>include\caffepro\layers\operation_layes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\learnable_dropout_layer.h">
+      <Filter>include\caffepro\layers\neural_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\dim_innerproduct_layer.h">
+      <Filter>include\caffepro\layers\operation_layes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\sym_sigmoid_layer.h">
+      <Filter>include\caffepro\layers\neural_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\updater\nesterov_updater.h">
+      <Filter>include\caffepro\updater</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\rand_select_layer.h">
+      <Filter>include\caffepro\layers\structure_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\data\data_entries\image_sr_entry.h">
+      <Filter>include\caffepro\data\data_entries</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\euclidean_loss_layer.h">
+      <Filter>include\caffepro\layers\loss_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\softthr_layer.h">
+      <Filter>include\caffepro\layers\neural_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\local_norm_layer.h">
+      <Filter>include\caffepro\layers\norm_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\l1norm_layer.h">
+      <Filter>include\caffepro\layers\norm_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\dropoutsame_layer.h">
+      <Filter>include\caffepro\layers\neural_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\math\cublas_debug.h">
+      <Filter>include\caffepro\math</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\transpose4d_layer.h">
+      <Filter>include\caffepro\layers\operation_layes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\slice_layer.h">
+      <Filter>include\caffepro\layers\structure_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\dimshuffle_layer.h">
+      <Filter>include\caffepro\layers\operation_layes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\diag_operation_layer.h">
+      <Filter>include\caffepro\layers\operation_layes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\mean_norm_layer.h">
+      <Filter>include\caffepro\layers\norm_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\prelu_layer.h">
+      <Filter>include\caffepro\layers\neural_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\diag4d_operation_layer.h">
+      <Filter>include\caffepro\layers\operation_layes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\birelu_layer.h">
+      <Filter>include\caffepro\layers\neural_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\scalebias_layer.h">
+      <Filter>include\caffepro\layers\operation_layes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\softmax_loss_ohem_layer.h">
+      <Filter>include\caffepro\layers\loss_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\softmax_ohem_layer.h">
+      <Filter>include\caffepro\layers\operation_layes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\solver\sgd_solver_ohem.h">
+      <Filter>include\caffepro\solver</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\solver\sgd_solver_ohem_fast.h">
+      <Filter>include\caffepro\solver</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\softmax_ohem_split_layer.h">
+      <Filter>include\caffepro\layers\operation_layes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\data\data_accessors\sequential_rank_accessor.h">
+      <Filter>include\caffepro\data\data_accessors</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\solver\sgd_solver_rank_ohem.h">
+      <Filter>include\caffepro\solver</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\layers\runavg_batch_norm_layer.h">
+      <Filter>include\caffepro\layers\norm_layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\utils\color_print.h">
+      <Filter>include\caffepro\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\utils\multinode.h">
+      <Filter>include\caffepro\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\test_time\net_test_extract.h">
+      <Filter>include\caffepro\test_time</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\data\data_accessors\sequential_accessor_ssgd.h">
+      <Filter>include\caffepro\data\data_accessors</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\updater\ssgd_updater.h">
+      <Filter>include\caffepro\updater\ssgd</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\updater\ssgd_sim_updater.h">
+      <Filter>include\caffepro\updater\ssgd</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\updater\bmuf_updater.h">
+      <Filter>include\caffepro\updater\ssgd</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\updater\record_sim_ssgd_updater.h">
+      <Filter>include\caffepro\updater\ssgd</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\utils\analyzer.h">
+      <Filter>include\caffepro\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\proto\analyzer.pb.h">
+      <Filter>include\caffepro\proto</Filter>
+    </ClInclude>
+    <ClInclude Include="include\caffepro\utils\mpi.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\caffepro\context\memory\memory_manager.cpp">
+      <Filter>src\caffepro\context\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\context\memory\device_memory_manager.cpp">
+      <Filter>src\caffepro\context\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\context\memory\synced_memory.cpp">
+      <Filter>src\caffepro\context\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\context\device_context.cpp">
+      <Filter>src\caffepro\context</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\context\caffepro_context.cpp">
+      <Filter>src\caffepro\context</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\object_model\device_blob.cpp">
+      <Filter>src\caffepro\object_model</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\object_model\node_blob.cpp">
+      <Filter>src\caffepro\object_model</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\object_model\caffepro_layer.cpp">
+      <Filter>src\caffepro\object_model</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\layer_factory.cpp">
+      <Filter>src\caffepro\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\proto\caffe.pb.cc">
+      <Filter>src\caffepro\proto</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\math\cublas_wrapper_float.cpp">
+      <Filter>src\caffepro\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\utils\filler.cpp">
+      <Filter>src\caffepro\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\conv_layer.cpp">
+      <Filter>src\caffepro\layers\weight_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\innerproduct_layer.cpp">
+      <Filter>src\caffepro\layers\weight_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\pooling_layer.cpp">
+      <Filter>src\caffepro\layers\resize_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\gpu_concat_layer.cpp">
+      <Filter>src\caffepro\layers\structure_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\softmax_layer.cpp">
+      <Filter>src\caffepro\layers\neural_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\object_model\caffepro_net.cpp">
+      <Filter>src\caffepro\object_model</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\proto\proto_io.cpp">
+      <Filter>src\caffepro\proto</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\utils\data_utils\bigfile.cpp">
+      <Filter>src\caffepro\utils\data_utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\data_bigfile_layer.cpp">
+      <Filter>src\caffepro\layers\data_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\context\event_manager.cpp">
+      <Filter>src\caffepro\context</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\utils\random_helper.cpp">
+      <Filter>src\caffepro\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\utils\data_utils\color_kl.cpp">
+      <Filter>src\caffepro\utils\data_utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\utils\filesystem.cpp">
+      <Filter>src\caffepro\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\data_bigfile_layer.init.cpp">
+      <Filter>src\caffepro\layers\data_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\utils\data_utils\xml_image.cpp">
+      <Filter>src\caffepro\utils\data_utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\data_bigfile_layer.prefetch.cpp">
+      <Filter>src\caffepro\layers\data_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\data_bigfile_layer.improcess.cpp">
+      <Filter>src\caffepro\layers\data_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\updater\updater.cpp">
+      <Filter>src\caffepro\updater</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\updater\sgd_updater.cpp">
+      <Filter>src\caffepro\updater</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\updater\sgd_updater_legacy.cpp">
+      <Filter>src\caffepro\updater</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\solver\sgd_solver.cpp">
+      <Filter>src\caffepro\solver</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\solver\sgd_solver_benchmark.cpp">
+      <Filter>src\caffepro\solver</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\object_model\caffepro_config.cpp">
+      <Filter>src\caffepro\object_model</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\utils\data_utils\box_trans.cpp">
+      <Filter>src\caffepro\utils\data_utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\multilabel_sigmoid_loss_layer.cpp">
+      <Filter>src\caffepro\layers\loss_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\utils\accuracy.cpp">
+      <Filter>src\caffepro\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\utils\black_hole_layer.cpp">
+      <Filter>src\caffepro\layers\structure_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\test_time\bn_postprocess.cpp">
+      <Filter>src\caffepro\test_time</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\anchor_loc_loss_ex_layer.cpp">
+      <Filter>src\caffepro\layers\loss_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\object_model\data_model\data_container.cpp">
+      <Filter>src\caffepro\object_model\data_model</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\object_model\data_model\batch_descriptor.cpp">
+      <Filter>src\caffepro\object_model\data_model</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\object_model\data_model\data_provider.cpp">
+      <Filter>src\caffepro\object_model\data_model</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\object_model\data_model\data_entry.cpp">
+      <Filter>src\caffepro\object_model\data_model</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\data\data_containers\data_bigfile_container.cpp">
+      <Filter>src\caffepro\data\data_containers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\data\data_loaders\data_bigfile_loader.cpp">
+      <Filter>src\caffepro\data\data_loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\data\data_loaders\box_proposal_loader.cpp">
+      <Filter>src\caffepro\data\data_loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\data\data_loaders\multilabel_loader.cpp">
+      <Filter>src\caffepro\data\data_loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\data\data_accessors\sequential_accessor.cpp">
+      <Filter>src\caffepro\data\data_accessors</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\data\data_loaders\kl_data_loader.cpp">
+      <Filter>src\caffepro\data\data_loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\data\data_entries\image_entry.cpp">
+      <Filter>src\caffepro\data\data_entries</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\data\data_provider_factory.cpp">
+      <Filter>src\caffepro\data</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\data_entry_layer.cpp">
+      <Filter>src\caffepro\layers\data_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\data\data_entries\label_entry.cpp">
+      <Filter>src\caffepro\data\data_entries</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\data\data_entries\rcnn_entry.cpp">
+      <Filter>src\caffepro\data\data_entries</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\data\data_accessors\sequential_proposal_accessor.cpp">
+      <Filter>src\caffepro\data\data_accessors</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\data\data_entries\rfcn_entry.cpp">
+      <Filter>src\caffepro\data\data_entries</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\exp_layer.cpp">
+      <Filter>src\caffepro\layers\neural_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\observer_layer.cpp">
+      <Filter>src\caffepro\layers\helper_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\test_time\net_tester.cpp">
+      <Filter>src\caffepro\test_time</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\weight_layer.cpp">
+      <Filter>src\caffepro\layers\weight_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\updater\sgd_updater_faster.cpp">
+      <Filter>src\caffepro\updater</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\eltwise_prod_layer.cpp">
+      <Filter>src\caffepro\layers\eltwise_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\reduce_dim_layer.cpp">
+      <Filter>src\caffepro\layers\resize_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\context\hook_manager.cpp">
+      <Filter>src\caffepro\context</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\hooks\save_feature_handler.cpp">
+      <Filter>src\caffepro\hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\step_gate_layer.cpp">
+      <Filter>src\caffepro\layers\neural_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\correlation_layer.cpp">
+      <Filter>src\caffepro\layers\operation_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\matrix_mul_layer.cpp">
+      <Filter>src\caffepro\layers\operation_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\matrix_mul_stack_layer.cpp">
+      <Filter>src\caffepro\layers\operation_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\transpose_layer.cpp">
+      <Filter>src\caffepro\layers\operation_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\updater\nesterov_updater.cpp">
+      <Filter>src\caffepro\updater</Filter>
+    </ClCompile>
+    <ClCompile Include="include\caffepro\layers\rand_select_layer.cpp">
+      <Filter>src\caffepro\layers\structure_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\data\data_entries\image_sr_entry.cpp">
+      <Filter>src\caffepro\data\data_entries</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\eltwise_sum_layer.cpp">
+      <Filter>src\caffepro\layers\eltwise_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\math\cublas_debug.cpp">
+      <Filter>src\caffepro\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\concat_layer.cpp">
+      <Filter>src\caffepro\layers\structure_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\solver\sgd_solver_ohem.cpp">
+      <Filter>src\caffepro\solver</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\solver\sgd_solver_rank_ohem.cpp">
+      <Filter>src\caffepro\solver</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\sequential_rank_accessor.cpp">
+      <Filter>src\caffepro\data\data_accessors</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\layers\runavg_batch_norm_layer.cpp">
+      <Filter>src\caffepro\layers\norm_layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\utils\multinode.cpp">
+      <Filter>src\caffepro\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\test_time\net_test_extract.cpp">
+      <Filter>src\caffepro\test_time</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\data\data_accessors\sequential_accessor_ssgd.cpp">
+      <Filter>src\caffepro\data\data_accessors</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\updater\ssgd_updater.cpp">
+      <Filter>src\caffepro\updater\ssgd</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\updater\ssgd_sim_updater.cpp">
+      <Filter>src\caffepro\updater\ssgd</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\updater\record_sim_ssgd_updater.cpp">
+      <Filter>src\caffepro\updater\ssgd</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\updater\bmuf_updater.cpp">
+      <Filter>src\caffepro\updater\ssgd</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffepro\proto\analyzer.pb.cc">
+      <Filter>src\caffepro\proto</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="src\caffepro\math\cublas_wrapper_float.cu">
+      <Filter>src\caffepro\math</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\relu_layer.cu">
+      <Filter>src\caffepro\layers\neural_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\softmax_loss_layer.cu">
+      <Filter>src\caffepro\layers\loss_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\dropout_layer.cu">
+      <Filter>src\caffepro\layers\neural_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\sigmoid_layer.cu">
+      <Filter>src\caffepro\layers\neural_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\grid_generator_layer.cu">
+      <Filter>src\caffepro\layers\resize_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\sample_layer.cu">
+      <Filter>src\caffepro\layers\resize_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\rcnn_loss_layer.cu">
+      <Filter>src\caffepro\layers\loss_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\box_pool_layer.cu">
+      <Filter>src\caffepro\layers\resize_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\box_regression_layer.cu">
+      <Filter>src\caffepro\layers\loss_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\resize_grid_layer.cu">
+      <Filter>src\caffepro\layers\resize_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\bound_layer.cu">
+      <Filter>src\caffepro\layers\neural_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\cluster_loss_layer.cu">
+      <Filter>src\caffepro\layers\loss_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\lrn_layer.cu">
+      <Filter>src\caffepro\layers\norm_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\batch_norm_layer.cu">
+      <Filter>src\caffepro\layers\norm_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\local_norm_layer.cu">
+      <Filter>src\caffepro\layers\norm_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\online_kmeans_loss_layer.cu">
+      <Filter>src\caffepro\layers\loss_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\padding_layer.cu">
+      <Filter>src\caffepro\layers\resize_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\math\reduce_wrapper.cu">
+      <Filter>src\caffepro\math</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\crop_layer.cu">
+      <Filter>src\caffepro\layers\resize_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\accuracy.cu">
+      <Filter>src\caffepro\layers\loss_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\eltwise_max_layer.cu">
+      <Filter>src\caffepro\layers\eltwise_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\eltwise_amax_layer.cu">
+      <Filter>src\caffepro\layers\eltwise_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\instance_sample_layer.cu">
+      <Filter>src\caffepro\layers\resize_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\householder_layer.cu">
+      <Filter>src\caffepro\layers\operation_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\scalebias_layer.cu">
+      <Filter>src\caffepro\layers\operation_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\flip_layer.cu">
+      <Filter>src\caffepro\layers\operation_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\learnable_dropout_layer.cu">
+      <Filter>src\caffepro\layers\neural_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\dim_innerproduct_layer.cu">
+      <Filter>src\caffepro\layers\operation_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\sym_sigmoid_layer.cu">
+      <Filter>src\caffepro\layers\neural_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\euclidean_loss_layer.cpp">
+      <Filter>src\caffepro\layers\loss_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\softthr_layer.cu">
+      <Filter>src\caffepro\layers\neural_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\dropoutsame_layer.cu">
+      <Filter>src\caffepro\layers\neural_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\transpose4d_layer.cu">
+      <Filter>src\caffepro\layers\operation_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\dimshuffle_layer.cu">
+      <Filter>src\caffepro\layers\operation_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\slice_layer.cu">
+      <Filter>src\caffepro\layers\structure_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\l2norm_layer.cu">
+      <Filter>src\caffepro\layers\norm_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\l1norm_layer.cu">
+      <Filter>src\caffepro\layers\norm_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\diag_operation_layer.cu">
+      <Filter>src\caffepro\layers\operation_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\mean_norm_layer.cu">
+      <Filter>src\caffepro\layers\norm_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\prelu_layer.cu">
+      <Filter>src\caffepro\layers\neural_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\diag4d_operation_layer.cu">
+      <Filter>src\caffepro\layers\operation_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\birelu_layer.cu">
+      <Filter>src\caffepro\layers\neural_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\softmax_loss_ohem_layer.cu">
+      <Filter>src\caffepro\layers\loss_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\softmax_ohem_layer.cu">
+      <Filter>src\caffepro\layers\operation_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\layers\softmax_ohem_split_layer.cu">
+      <Filter>src\caffepro\layers\operation_layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\caffepro\solver\sgd_solver_ohem_fast.cu">
+      <Filter>src\caffepro\solver</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Caffepro.x64.Debug.user.props" />
+    <None Include="Caffepro.x64.Release.user.props" />
+  </ItemGroup>
+</Project>
