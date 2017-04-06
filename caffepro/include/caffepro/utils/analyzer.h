@@ -126,6 +126,7 @@ namespace analyzer {
 			std::string name = foldname + "/" + filename + ".info";
 			std::ofstream fp(name.c_str(), std::ios::binary);
 			imgs.SerializeToOstream(&fp);
+			// add imgs to mongo db directly !!!!!!!!
 			fp.close();
 		}
 
@@ -188,6 +189,7 @@ namespace analyzer {
 
 		// dump to file
 		void save_to_file(std::string foldname) {
+			// add info to mongo db directly !!!!!!!!
 			if (!caffepro::filesystem::exist(foldname.c_str()))
 				caffepro::filesystem::create_directory(foldname.c_str());
 
