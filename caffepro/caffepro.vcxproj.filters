@@ -676,6 +676,8 @@
       <Filter>include\caffepro\proto</Filter>
     </ClInclude>
     <ClInclude Include="include\caffepro\utils\mpi.h" />
+    <ClInclude Include="include\caffepro\proto\analyzer_proto.pb.h" />
+    <ClInclude Include="include\caffepro\utils\analyzer_tools.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\caffepro\context\memory\memory_manager.cpp">
@@ -948,6 +950,7 @@
     <ClCompile Include="src\caffepro\proto\analyzer.pb.cc">
       <Filter>src\caffepro\proto</Filter>
     </ClCompile>
+    <ClCompile Include="src\caffepro\proto\analyzer_proto.pb.cc" />
   </ItemGroup>
   <ItemGroup>
     <CudaCompile Include="src\caffepro\math\cublas_wrapper_float.cu">

@@ -11,6 +11,7 @@
 
 #include <caffepro/proto/analyzer.pb.h>
 #include <google/protobuf/io/zero_copy_stream_impl.h>
+#include <caffepro/utils/analyzer_tools.h>
 
 using caffepro::caffepro_layer;
 using caffepro::data_model::data_provider;

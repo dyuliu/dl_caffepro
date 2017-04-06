@@ -206,7 +206,7 @@ namespace caffepro {
 			if (test_net_) {
 				next_test_iter = iter_ + param_.test_interval();
 			}
-
+			analyzer_tools::Analyzer analyzer("final", "ig-1x-lr2", "localhost:27017");
 			data_type best_error = FLT_MAX;
 			int running_iterations = 0;
 			ori_iter_ = iter_;

@@ -125,6 +125,7 @@
     <ClInclude Include="include\caffepro\object_model\device_blob.h" />
     <ClInclude Include="include\caffepro\object_model\node_blob.h" />
     <ClInclude Include="include\caffepro\proto\analyzer.pb.h" />
+    <ClInclude Include="include\caffepro\proto\analyzer_proto.pb.h" />
     <ClInclude Include="include\caffepro\proto\caffe.pb.h" />
     <ClInclude Include="include\caffepro\proto\proto_io.h" />
     <ClInclude Include="include\caffepro\solver\sgd_solver.h" />
@@ -147,6 +148,7 @@
     <ClInclude Include="include\caffepro\updater\updaters.h" />
     <ClInclude Include="include\caffepro\utils\accuracy.h" />
     <ClInclude Include="include\caffepro\utils\analyzer.h" />
+    <ClInclude Include="include\caffepro\utils\analyzer_tools.h" />
     <ClInclude Include="include\caffepro\utils\color_print.h" />
     <ClInclude Include="include\caffepro\utils\data_utils\bigfile.h" />
     <ClInclude Include="include\caffepro\utils\data_utils\binary_io.h" />
@@ -239,6 +241,7 @@
     <ClCompile Include="src\caffepro\object_model\device_blob.cpp" />
     <ClCompile Include="src\caffepro\object_model\node_blob.cpp" />
     <ClCompile Include="src\caffepro\proto\analyzer.pb.cc" />
+    <ClCompile Include="src\caffepro\proto\analyzer_proto.pb.cc" />
     <ClCompile Include="src\caffepro\proto\caffe.pb.cc" />
     <ClCompile Include="src\caffepro\proto\proto_io.cpp" />
     <ClCompile Include="src\caffepro\solver\sgd_solver.cpp" />
