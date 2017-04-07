@@ -133,7 +133,7 @@ namespace caffepro_tools {
 	}
 
 	void bn_post_process(caffepro::caffepro_context *context, const std::string &prototxt_file, const std::string &model_file, int nIters, 
-		const std::string &save_file, const analyzer::Info &info) {
+		const std::string &save_file, const analyzer_proto::Info &info) {
 
 		init_log();
 

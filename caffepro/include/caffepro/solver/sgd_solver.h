@@ -100,8 +100,8 @@ namespace caffepro {
 		std::string cur_sgd_method;
 
 		// running info
-		analyzer::RecordInfo recorder_;
-
+		//analyzer::RecordInfo recorder_;
+		boost::shared_ptr<analyzer_tools::Analyzer> analyzer_tools_instance_;
 	private:
 		DISABLE_COPY_AND_ASSIGN(sgd_solver);
 	};

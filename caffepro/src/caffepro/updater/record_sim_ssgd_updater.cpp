@@ -12,12 +12,13 @@ namespace caffepro {
 			SolverParameter &param, 
 			std::vector<metric> &update_metrics,
 			std::vector<boost::shared_ptr<caffepro_layer>> &layers,
+			boost::shared_ptr<analyzer_tools::Analyzer> &analyzer_tools_instance,
 			int &cur_iter,
 			int &ori_iter,
 			boost::shared_ptr<data_model::data_provider> &data_provider
 		) : sgd_updater(context, weight_info, param, update_metrics), 
 		    momentum_(param.momentum()), update_interval_(param.sim_update_interval()), 
-			layers_(layers), dump_invl_(param.dump_interval()), iter_(cur_iter), ori_iter_(ori_iter), data_provider_(data_provider) {
+			layers_(layers), analyzer_tools_instance_(analyzer_tools_instance), dump_invl_(param.dump_interval()), iter_(cur_iter), ori_iter_(ori_iter), data_provider_(data_provider) {
 
 		COUT_METD << "Using Record synchronized sgd method with simulation" << std::endl;
 
@@ -164,7 +165,8 @@ namespace caffepro {
 			// To do: add image batch indexes
 			if (rank_ == 0) infos.record(layers_, data_provider_, iteration_, rank_, analyzer::DumpInfo::SAVE_ALL);
 			else infos.record(layers_, data_provider_, iteration_, rank_, analyzer::DumpInfo::SAVE_GRAD);
-			infos.save_to_file(foldname);
+			//infos.save_to_file(foldname);
+			infos.save_to_db(analyzer_tools_instance_);
 		}
 
 		if (type_ == 3) {

@@ -796,7 +796,7 @@ namespace caffepro {
 		}
 	}
 
-	void caffepro_net::load_weights_from_info(NetParameter &param, const analyzer::Info &info) {
+	void caffepro_net::load_weights_from_info(NetParameter &param, const analyzer_proto::Info &info) {
 
 		set<blob_hash> loaded_weight_blobs;
 

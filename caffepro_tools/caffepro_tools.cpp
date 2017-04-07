@@ -521,7 +521,7 @@ void test_dump_model() {
 			auto train_net_ = solver_.train_net();
 			auto iters = FLAGS_iters;
 			auto info_file = files[i];
-			analyzer::Info info;
+			analyzer_proto::Info info;
 			caffepro::proto_io(info).from_binary_file(info_file);
 			std::string save_model = caffepro::fill_zero(info.iteration(), 8);
 			caffepro_tools::bn_post_process(&context, train_net_, FLAGS_model, iters, save_model, info);
@@ -533,7 +533,7 @@ void test_dump_model() {
 		caffepro::proto_io(solver_).from_text_file(FLAGS_prototxt);
 		FLAGS_prototxt = solver_.train_net();
 		auto iters = FLAGS_iters;
-		analyzer::Info info;
+		analyzer_proto::Info info;
 		caffepro::proto_io(info).from_binary_file(FLAGS_info);
 		std::string save_model = caffepro::fill_zero(info.iteration(), 8);
 		caffepro_tools::bn_post_process(&context, FLAGS_prototxt, FLAGS_model, iters, save_model, info);
@@ -582,7 +582,7 @@ void test_dump() {
 			COUT_RUNN << "Batch normalization post-process from " << FLAGS_model << endl;
 			COUT_RUNN << "Prototxt file = " << train_net_ << endl;
 			COUT_RUNN << "Save file = " << FLAGS_save_model << endl;
-			analyzer::Info info;
+			analyzer_proto::Info info;
 			caffepro::proto_io(info).from_binary_file(info_file);
 			std::string save_model = caffepro::fill_zero(info.iteration(), 8);
 			caffepro_tools::bn_post_process(&context, FLAGS_prototxt, FLAGS_model, iters, save_model, info);
@@ -611,7 +611,7 @@ void test_dump() {
 		COUT_RUNN << "Batch normalization post-process from " << FLAGS_model << endl;
 		COUT_RUNN << "Prototxt file = " << FLAGS_prototxt << endl;
 		COUT_RUNN << "Save file = " << FLAGS_save_model << endl;
-		analyzer::Info info;
+		analyzer_proto::Info info;
 		caffepro::proto_io(info).from_binary_file(FLAGS_info);
 		std::string save_model = caffepro::fill_zero(info.iteration(), 8);
 		caffepro_tools::bn_post_process(&context, FLAGS_prototxt, FLAGS_model, iters, save_model, info);

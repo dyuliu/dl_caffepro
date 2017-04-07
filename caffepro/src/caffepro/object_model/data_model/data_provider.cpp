@@ -9,7 +9,7 @@ namespace caffepro {
 
 		data_provider::data_provider(caffepro_context *context, caffepro_config *config) 
 			: context_(context), config_(config), cache_data_(true), 
-			img_info_(new analyzer::Images), test_img_info_(new analyzer::Images) {
+			img_info_(new analyzer_proto::Images), test_img_info_(new analyzer_proto::Images) {
 			CHECK(context_);
 			CHECK(config_) << "Config must be provided to initialize data provider";
 			data_provider_config_.set_config(config_);

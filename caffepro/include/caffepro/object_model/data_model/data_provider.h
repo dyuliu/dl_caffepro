@@ -1,7 +1,7 @@
 
 #pragma once 
 
-#include <caffepro/proto/analyzer.pb.h>
+#include <caffepro/proto/analyzer_proto.pb.h>
 #include <caffepro/object_model/data_model/batch_descriptor.h>
 #include <caffepro/object_model/data_model/data_loader.h>
 #include <caffepro/object_model/data_model/data_accessor.h>
@@ -25,8 +25,8 @@ namespace caffepro {
 			// fetch functions
 
 			// when dumped, should be cleared
-			boost::shared_ptr<analyzer::Images> &img_info() { return img_info_; }
-			boost::shared_ptr<analyzer::Images> &test_img_info() { return test_img_info_; }
+			boost::shared_ptr<analyzer_proto::Images> &img_info() { return img_info_; }
+			boost::shared_ptr<analyzer_proto::Images> &test_img_info() { return test_img_info_; }
 
 
 			// prototype related
@@ -152,8 +152,8 @@ namespace caffepro {
 			bool cache_data_; // whether caching data in memory
 
 			// write img info of a batch into info
-			boost::shared_ptr<analyzer::Images> img_info_;
-			boost::shared_ptr<analyzer::Images> test_img_info_;
+			boost::shared_ptr<analyzer_proto::Images> img_info_;
+			boost::shared_ptr<analyzer_proto::Images> test_img_info_;
 
 
 		private:

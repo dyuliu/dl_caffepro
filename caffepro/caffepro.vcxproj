@@ -124,7 +124,6 @@
     <ClInclude Include="include\caffepro\object_model\data_model\data_provider.h" />
     <ClInclude Include="include\caffepro\object_model\device_blob.h" />
     <ClInclude Include="include\caffepro\object_model\node_blob.h" />
-    <ClInclude Include="include\caffepro\proto\analyzer.pb.h" />
     <ClInclude Include="include\caffepro\proto\analyzer_proto.pb.h" />
     <ClInclude Include="include\caffepro\proto\caffe.pb.h" />
     <ClInclude Include="include\caffepro\proto\proto_io.h" />
@@ -240,7 +239,6 @@
     <ClCompile Include="src\caffepro\object_model\data_model\data_provider.cpp" />
     <ClCompile Include="src\caffepro\object_model\device_blob.cpp" />
     <ClCompile Include="src\caffepro\object_model\node_blob.cpp" />
-    <ClCompile Include="src\caffepro\proto\analyzer.pb.cc" />
     <ClCompile Include="src\caffepro\proto\analyzer_proto.pb.cc" />
     <ClCompile Include="src\caffepro\proto\caffe.pb.cc" />
     <ClCompile Include="src\caffepro\proto\proto_io.cpp" />
@@ -356,7 +354,7 @@
     <LibraryPath>$(SolutionDir)\dependency\lib\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir)\include;$(SolutionDir)\dependency\include\mpi;$(SolutionDir)\dependency\include\boost_1_55_0;$(SolutionDir)\protobuf-2.4.1\src;$(SolutionDir)\dependency\include\opencv_2_49;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\include;$(SolutionDir)\dependency\include\mpi;$(SolutionDir)\dependency\include\boost_1_55_0;$(SolutionDir)\protobuf-2.4.1\src;$(SolutionDir)\dependency\include\analyzer_tools;$(SolutionDir)\dependency\include\opencv_2_49;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\dependency\lib\Release;$(LibraryPath)</LibraryPath>
     <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>

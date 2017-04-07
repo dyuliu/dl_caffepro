@@ -672,9 +672,6 @@
     <ClInclude Include="include\caffepro\utils\analyzer.h">
       <Filter>include\caffepro\utils</Filter>
     </ClInclude>
-    <ClInclude Include="include\caffepro\proto\analyzer.pb.h">
-      <Filter>include\caffepro\proto</Filter>
-    </ClInclude>
     <ClInclude Include="include\caffepro\utils\mpi.h" />
     <ClInclude Include="include\caffepro\proto\analyzer_proto.pb.h" />
     <ClInclude Include="include\caffepro\utils\analyzer_tools.h" />
@@ -946,9 +943,6 @@
     </ClCompile>
     <ClCompile Include="src\caffepro\updater\bmuf_updater.cpp">
       <Filter>src\caffepro\updater\ssgd</Filter>
-    </ClCompile>
-    <ClCompile Include="src\caffepro\proto\analyzer.pb.cc">
-      <Filter>src\caffepro\proto</Filter>
     </ClCompile>
     <ClCompile Include="src\caffepro\proto\analyzer_proto.pb.cc" />
   </ItemGroup>

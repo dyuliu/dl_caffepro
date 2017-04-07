@@ -67,7 +67,7 @@ namespace caffepro_tools {
 		const std::string &model_file,
 		int nIters,
 		const std::string &save_file,
-		const analyzer::Info &info_file
+		const analyzer_proto::Info &info_file
 		);
 
 	void box_tester(

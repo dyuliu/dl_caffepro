@@ -133,7 +133,7 @@ namespace caffepro {
 
 		void setup_layer_runtime_properties(bool force_backward_all = false);
 		void load_weights(NetParameter &param);
-		void load_weights_from_info(NetParameter &param, const analyzer::Info &info);
+		void load_weights_from_info(NetParameter &param, const analyzer_proto::Info &info);
 		void save_proto(NetParameter &param);
 
 		void release_blobs();

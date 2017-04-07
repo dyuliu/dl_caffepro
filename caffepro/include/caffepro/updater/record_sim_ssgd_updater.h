@@ -3,6 +3,7 @@
 
 #include <caffepro/updater/sgd_updater.h>
 #include <caffepro/utils/multinode.h>
+#include <caffepro/utils/analyzer_tools.h>
 
 namespace caffepro {
 	class record_sim_ssgd_updater : public sgd_updater {
@@ -13,6 +14,7 @@ namespace caffepro {
 			SolverParameter &param,
 			std::vector<metric> &update_metrics,
 			std::vector<boost::shared_ptr<caffepro_layer>> &layers,
+			boost::shared_ptr<analyzer_tools::Analyzer> &analyzer_tools_instance,
 			int &cur_iter,
 			int &ori_iter,
 			boost::shared_ptr<data_model::data_provider> &data_provider
@@ -61,6 +63,7 @@ namespace caffepro {
 		int dump_invl_;
 		std::vector<boost::shared_ptr<caffepro_layer>> layers_;
 		boost::shared_ptr<data_model::data_provider> data_provider_;
+		boost::shared_ptr<analyzer_tools::Analyzer> analyzer_tools_instance_;
 
 	private:
 		DISABLE_COPY_AND_ASSIGN(record_sim_ssgd_updater);

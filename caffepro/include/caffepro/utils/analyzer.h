@@ -9,7 +9,7 @@
 #include <caffepro/object_model/caffepro_layer.h>
 #include <caffepro/proto/caffe.pb.h>
 
-#include <caffepro/proto/analyzer.pb.h>
+#include <caffepro/proto/analyzer_proto.pb.h>
 #include <google/protobuf/io/zero_copy_stream_impl.h>
 #include <caffepro/utils/analyzer_tools.h>
 
@@ -52,7 +52,7 @@ namespace analyzer {
 		}
 
 		void add_record(int iteration, RECORD_TYPE type, float value) {
-			analyzer::RecordTuple *tup = recorder.add_tuple();
+			analyzer_proto::RecordTuple *tup = recorder.add_tuple();
 			tup->set_iteration(iteration);
 			tup->set_type(nameOfType[type].c_str());
 			tup->set_value(value);
@@ -66,7 +66,7 @@ namespace analyzer {
 				}
 			}
 			// couldn't find the default tpye, input user-define
-			analyzer::RecordTuple *tup = recorder.add_tuple();
+			analyzer_proto::RecordTuple *tup = recorder.add_tuple();
 			tup->set_iteration(iteration);
 			tup->set_type(type.c_str());
 			tup->set_value(value);
@@ -94,7 +94,7 @@ namespace analyzer {
 		}
 
 	private:
-		Recorder recorder;
+		analyzer_proto::Recorder recorder;
 		std::map<RECORD_TYPE, std::string> nameOfType;
 
 	};
@@ -102,7 +102,7 @@ namespace analyzer {
 	class DumpInfo {
 
 	private:
-		Info info;
+		analyzer_proto::Info info;
 
 	public:
 
@@ -113,7 +113,11 @@ namespace analyzer {
 			NOTSAVE		= 3U
 		};
 
-		void testRecord(Images &imgs, int iteration_, std::string foldname = "test_records", std::string filename = "") {
+		void testRecord(analyzer_proto::Images &imgs, boost::shared_ptr<analyzer_tools::Analyzer> analyzer_tools_instance_) {
+			analyzer_tools_instance_->deal_img_info(imgs, 50000);
+		}
+
+		void testRecord(analyzer_proto::Images &imgs, int iteration_, std::string foldname = "test_records", std::string filename = "") {
 
 			// filename define
 			// AAAAAAAA_BBB.info iteration_rank
@@ -131,6 +135,7 @@ namespace analyzer {
 			fp.close();
 		}
 
+		
 		// dump all info (grad, weight)
 		// SAVE_ALL(default), SAVE_GRAD, SAVE_WEIGHT, NOTSAVE
 		void record(
@@ -141,24 +146,19 @@ namespace analyzer {
 			// AAAAAAAA_BBB.info iteration_rank
 			std::string filename = "";
 			filename = caffepro::fill_zero(iteration_, 8) + "_" + caffepro::fill_zero(rank_, 3);
+
 			// basic info
 			info.set_filename(filename.c_str());
 			info.set_iteration(iteration_);
 			info.set_worker_id(rank_);
 
-			// To do: new Image & import it
 			if (save_method_ == SAVE_ALL) {
 				auto &img_info_ = data_provider_->img_info();
-				//CHECK(img_info_);
-				//std::cout << "analyzer.h  " << img_info_->images_size() << std::endl;
 				img_info_->set_iteration(iteration_);
 				info.mutable_images()->CopyFrom(*img_info_);
 				img_info_->Clear();
 			}
 			
-			//img_info_->clear_class_name();
-			//img_info_->clear_data_name();
-
 			// layers info
 			for (auto layer_ : layers_) {
 				for (auto weight_info_ : layer_->weights()) {
@@ -189,8 +189,7 @@ namespace analyzer {
 		}
 
 		// dump to file
-		void save_to_file(std::string foldname) {
-			// add info to mongo db directly !!!!!!!!
+		void save_to_file(std::string foldname) {			
 			if (!caffepro::filesystem::exist(foldname.c_str()))
 				caffepro::filesystem::create_directory(foldname.c_str());
 
@@ -198,6 +197,11 @@ namespace analyzer {
 			std::ofstream fp(filename.c_str(), std::ios::binary);
 			info.SerializeToOstream(&fp);
 			fp.close();
+		}
+
+		// dump to db
+		void save_to_db(boost::shared_ptr<analyzer_tools::Analyzer> analyzer_tools_instance_) {
+			analyzer_tools_instance_->deal_para_info(info);
 		}
 
 	};

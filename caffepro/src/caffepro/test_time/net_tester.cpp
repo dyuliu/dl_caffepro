@@ -68,7 +68,7 @@ namespace caffepro {
 
 		analyzer::DumpInfo imgInfos;
 		if (!file_info.empty()) {
-			analyzer::Info info;
+			analyzer_proto::Info info;
 			proto_io(info).from_binary_file(file_info);
 			img_info->set_iteration(info.iteration());
 			imgInfos.testRecord(*img_info, info.iteration(), "output");

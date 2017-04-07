@@ -1,9 +1,12 @@
+#pragma once
+
 #include <iostream>
 #include <string>
+#include <memory>
+#include <map>
 
 namespace analyzer_proto {
 	class Info;
-	class Recorders;
 	class Images;
 }
 
@@ -11,7 +14,6 @@ namespace analyzer_tools {
 
 	namespace analyzer {
 		class Infos;
-		class Recorders;
 	}
 
 	namespace db {
@@ -20,10 +22,9 @@ namespace analyzer_tools {
 
 	using std::string;
 	using analyzer::Infos;
-	using analyzer::Recorders;
 	using analyzer_proto::Info;
 	using analyzer_proto::Images;
-	
+
 	void print();
 
 	bool save_image(char *data, int length, string dir_name, string file_name);
@@ -53,12 +54,12 @@ namespace analyzer_tools {
 		bool deal_img_info(Images &img_info_, int batchsize);
 
 	private:
-		db::DB *dbInstance;
-		bool firstParaInfo, firstImgInfo;
+		db::DB *db_instance;
+		bool first_parainfo, first_imginfo;
 		std::shared_ptr<Infos> pre_info;
 		std::map<std::string, int> map_img_label;
 		std::map<RECORD_TYPE, std::string> recType;
 	};
-	
+
 }
 

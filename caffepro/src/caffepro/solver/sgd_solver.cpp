@@ -25,11 +25,11 @@ namespace caffepro {
 
 		worker_id_ = multinode::get()->get_worker_id();
 
-		auto recorder_list = filesystem::get_files("./", std::string("*_" + std::to_string(worker_id_) + ".recorder").c_str(), false);
-		if (recorder_list.size()) {
-			COUT_CHEK << "Load recorder from file: " << recorder_list[0] << std::endl;
-			recorder_.load_from_file(recorder_list[0]);
-		}
+		//auto recorder_list = filesystem::get_files("./", std::string("*_" + std::to_string(worker_id_) + ".recorder").c_str(), false);
+		//if (recorder_list.size()) {
+		//	COUT_CHEK << "Load recorder from file: " << recorder_list[0] << std::endl;
+		//	recorder_.load_from_file(recorder_list[0]);
+		//}
 
 		proto_io(param_).from_text_file(solver_param_file);
 
@@ -61,8 +61,10 @@ namespace caffepro {
 		NetParameter train_net_param;
 		proto_io(train_net_param).from_text_file(param_.train_net());
 
-		recorder_.set_name(train_net_param.name());
+		//recorder_.set_name(train_net_param.name());
 		LOG(INFO) << "Creating training net.";
+
+		analyzer_tools_instance_.reset(new analyzer_tools::Analyzer("finaltlib", "ig-1x-lr2", "localhost:27017"));
 
 		ENTER_DEVICE_CONTEXT(solver_device_id_)
 			net_.reset(caffepro_net::create_from_proto(context_, train_net_param, dataprovider_train));
@@ -84,7 +86,7 @@ namespace caffepro {
 			else if (string_equal_ignorecase(default_updater, "Record_SIM_SSGD")) {
 				if (param_.data_split()) init_data_provider();
 				updater_.reset(new record_sim_ssgd_updater(context_, net_->weights_info(), param_, update_metrics, 
-					net_->layers(), cur_iter_, ori_iter_, net_->data_provider()));
+					net_->layers(), analyzer_tools_instance_, cur_iter_, ori_iter_, net_->data_provider()));
 			}
 			else if (string_equal_ignorecase(default_updater, "SIM_SSGD")) {
 				if (param_.data_split()) init_data_provider();
@@ -206,7 +208,8 @@ namespace caffepro {
 			if (test_net_) {
 				next_test_iter = iter_ + param_.test_interval();
 			}
-			analyzer_tools::Analyzer analyzer("final", "ig-1x-lr2", "localhost:27017");
+			
+			
 			data_type best_error = FLT_MAX;
 			int running_iterations = 0;
 			ori_iter_ = iter_;
@@ -347,20 +350,27 @@ namespace caffepro {
 			return (data_type)metrics[param_.train_primary_output_index()].value;
 		}
 
-		recorder_.add_record(cur_iter_, analyzer::RecordInfo::RECORD_TYPE::TRAIN_ERROR, (float)metrics[0].value);
-		recorder_.add_record(cur_iter_, analyzer::RecordInfo::RECORD_TYPE::TRAIN_LOSS, (float)metrics[1].value);
-		recorder_.add_record(cur_iter_, analyzer::RecordInfo::RECORD_TYPE::FORWARD_TIME, (float)fw_t.value);
-		recorder_.add_record(cur_iter_, analyzer::RecordInfo::RECORD_TYPE::BACKWARD_TIME, (float)bp_t.value);
-		recorder_.add_record(cur_iter_, analyzer::RecordInfo::RECORD_TYPE::UPDATE_TIME, (float)up_t.value);
-		recorder_.add_record(cur_iter_, analyzer::RecordInfo::RECORD_TYPE::LEARNING_RATE, (float)lr.value);
+		analyzer_tools_instance_->deal_rec_info(cur_iter_, analyzer_tools::Analyzer::RECORD_TYPE::TRAIN_ERROR, (float)metrics[0].value);
+		analyzer_tools_instance_->deal_rec_info(cur_iter_, analyzer_tools::Analyzer::RECORD_TYPE::TRAIN_LOSS, (float)metrics[1].value);
+		analyzer_tools_instance_->deal_rec_info(cur_iter_, analyzer_tools::Analyzer::RECORD_TYPE::FORWARD_TIME, (float)fw_t.value);
+		analyzer_tools_instance_->deal_rec_info(cur_iter_, analyzer_tools::Analyzer::RECORD_TYPE::BACKWARD_TIME, (float)bp_t.value);
+		analyzer_tools_instance_->deal_rec_info(cur_iter_, analyzer_tools::Analyzer::RECORD_TYPE::UPDATE_TIME, (float)up_t.value);
+		analyzer_tools_instance_->deal_rec_info(cur_iter_, analyzer_tools::Analyzer::RECORD_TYPE::LEARNING_RATE, (float)lr.value);
 
-		for (auto item : update_mean_metrics) {
-			auto val = item.value/iterations;
-			auto type = item.name;
-			recorder_.add_record(cur_iter_, type, val);
-		}
-		
-		recorder_.save_to_file("running_info_" + std::to_string(worker_id_));
+		//recorder_.add_record(cur_iter_, analyzer::RecordInfo::RECORD_TYPE::TRAIN_ERROR, (float)metrics[0].value);
+		//recorder_.add_record(cur_iter_, analyzer::RecordInfo::RECORD_TYPE::TRAIN_LOSS, (float)metrics[1].value);
+		//recorder_.add_record(cur_iter_, analyzer::RecordInfo::RECORD_TYPE::FORWARD_TIME, (float)fw_t.value);
+		//recorder_.add_record(cur_iter_, analyzer::RecordInfo::RECORD_TYPE::BACKWARD_TIME, (float)bp_t.value);
+		//recorder_.add_record(cur_iter_, analyzer::RecordInfo::RECORD_TYPE::UPDATE_TIME, (float)up_t.value);
+		//recorder_.add_record(cur_iter_, analyzer::RecordInfo::RECORD_TYPE::LEARNING_RATE, (float)lr.value);
+
+		//for (auto item : update_mean_metrics) {
+		//	auto val = item.value/iterations;
+		//	auto type = item.name;
+		//	recorder_.add_record(cur_iter_, type, val);
+		//}
+		//
+		//recorder_.save_to_file("running_info_" + std::to_string(worker_id_));
 
 		return (data_type)metrics[0].value;
 	}
@@ -419,7 +429,7 @@ namespace caffepro {
 		}
 		img_info->set_iteration(iter_);
 		analyzer::DumpInfo imgInfos;
-		imgInfos.testRecord(*img_info, iter_);
+		imgInfos.testRecord(*img_info, analyzer_tools_instance_);
 		img_info->Clear();
 
 		for (int i = 0; i < (int)metrics.size(); i++) {
@@ -431,9 +441,13 @@ namespace caffepro {
 			return (data_type)metrics[param_.test_primary_output_index()].value;
 		}
 
-		recorder_.add_record(iter_, analyzer::RecordInfo::RECORD_TYPE::TEST_ERROR, (float)metrics[0].value);
-		recorder_.add_record(iter_, analyzer::RecordInfo::RECORD_TYPE::TEST_LOSS, (float)metrics[1].value);
-		recorder_.save_to_file("running_info_" + std::to_string(worker_id_));
+
+		analyzer_tools_instance_->deal_rec_info(iter_, analyzer_tools::Analyzer::RECORD_TYPE::TEST_ERROR, (float)metrics[0].value);
+		analyzer_tools_instance_->deal_rec_info(iter_, analyzer_tools::Analyzer::RECORD_TYPE::TEST_LOSS, (float)metrics[1].value);
+
+		//recorder_.add_record(iter_, analyzer::RecordInfo::RECORD_TYPE::TEST_ERROR, (float)metrics[0].value);
+		//recorder_.add_record(iter_, analyzer::RecordInfo::RECORD_TYPE::TEST_LOSS, (float)metrics[1].value);
+		//recorder_.save_to_file("running_info_" + std::to_string(worker_id_));
 
 		return (data_type)metrics[0].value;
 	}

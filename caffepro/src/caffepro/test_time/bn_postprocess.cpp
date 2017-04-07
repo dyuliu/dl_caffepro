@@ -7,7 +7,7 @@ namespace caffepro {
 	using std::vector;
 	using std::string;
 
-	bn_postprocess::bn_postprocess(caffepro_context *context, const std::string &net_def_file, const std::string &net_binary_file, const analyzer::Info &info)
+	bn_postprocess::bn_postprocess(caffepro_context *context, const std::string &net_def_file, const std::string &net_binary_file, const analyzer_proto::Info &info)
 		: context_(context) {
 
 		CHECK(context_);
