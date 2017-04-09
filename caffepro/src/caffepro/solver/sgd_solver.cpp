@@ -64,7 +64,8 @@ namespace caffepro {
 		//recorder_.set_name(train_net_param.name());
 		LOG(INFO) << "Creating training net.";
 
-		analyzer_tools_instance_.reset(new analyzer_tools::Analyzer("finaltlib", "ig-1x-lr2", "localhost:27017"));
+		// DeepTracker-5: initialize Analyzer_tools
+		analyzer_tools_instance_.reset(new analyzer_tools::Analyzer("finaltlib2", "ig-1x-lr2", "localhost:27017"));
 
 		ENTER_DEVICE_CONTEXT(solver_device_id_)
 			net_.reset(caffepro_net::create_from_proto(context_, train_net_param, dataprovider_train));
@@ -201,6 +202,7 @@ namespace caffepro {
 		save(filename + ".solverstate", filename + ".model");
 	}
 
+	// DeepTracker-6: training process running function
 	void sgd_solver::run() {
 		ENTER_DEVICE_CONTEXT(solver_device_id_)
 			int next_test_iter = INT_MAX;
@@ -217,7 +219,7 @@ namespace caffepro {
 			while (iter_ < param_.max_iter() && !context_->get_signal(caffepro_context::SIGNAL_STOP_ALL)) {
 				int training_cycle = std::min(param_.max_iter() - iter_, param_.display());
 				vector<metric> training_metrics;
-				data_type training_error = train(training_cycle, running_iterations, training_metrics);
+				data_type training_error = train(training_cycle, running_iterations, training_metrics);  // train function
 				iter_ += training_cycle; // or = cur_iter_
 				running_iterations += training_cycle;
 				display_metrics(training_error, training_metrics, "TRAIN");
@@ -226,7 +228,7 @@ namespace caffepro {
 					vector<metric> test_metrics;
 					net_->release_blobs();
 					test_net_->data_provider()->test_img_info()->Clear();
-					data_type test_error = test(test_metrics);
+					data_type test_error = test(test_metrics);	// test function
 					test_net_->release_blobs();
 					display_metrics(test_error, test_metrics, "TEST");
 
@@ -302,7 +304,7 @@ namespace caffepro {
 			// net_->data_provider()->img_info()
 			if ((running_iterations + i + 1) % param_.update_interval() == 0) { // LAST batch for an update interval
 				global_lr = get_learning_rate(cur_iter_);
-				updater_->update(global_lr, global_wc, true);
+				updater_->update(global_lr, global_wc, true);  // DeepTracker-7: update parameters and save to mongodb
 				context_->sync_all_devices();
 			}
 			int update_time = clock() - start_time;
@@ -350,6 +352,7 @@ namespace caffepro {
 			return (data_type)metrics[param_.train_primary_output_index()].value;
 		}
 
+		// DeepTracker-8: save training related info to mongodb
 		analyzer_tools_instance_->deal_rec_info(cur_iter_, analyzer_tools::Analyzer::RECORD_TYPE::TRAIN_ERROR, (float)metrics[0].value);
 		analyzer_tools_instance_->deal_rec_info(cur_iter_, analyzer_tools::Analyzer::RECORD_TYPE::TRAIN_LOSS, (float)metrics[1].value);
 		analyzer_tools_instance_->deal_rec_info(cur_iter_, analyzer_tools::Analyzer::RECORD_TYPE::FORWARD_TIME, (float)fw_t.value);
@@ -382,6 +385,7 @@ namespace caffepro {
 
 		bool debug_mode = (context_->get_global_cfg(GLOBALCFGNAME_DEBUG_MODE) == "TRUE");
 
+		// DeepTracker-9: convert img data to Image type defined by protobuf
 		auto &img_info = test_net_->data_provider()->test_img_info();
 
 		int img_count = 0;
@@ -395,9 +399,6 @@ namespace caffepro {
 			}
 			context_->sync_all_devices();
 			
-			//std::cout << "source_num: " << source->sum_num() << "  image_num: " << img_info->images_size() << std::endl;
-			//std::cout << img_info->images(1 + i * param_.test_iter()).class_name() << ":  ";
-			// source->sum_num()
 			string layer_name_ = "loss";
 			auto layer = test_net_->get_layer(layer_name_);
 			CHECK_GT(layer->inputs().size(), 0);
@@ -407,6 +408,7 @@ namespace caffepro {
 			}
 			int feature_dim = source->get(0)->inner_count();
 
+			// DeepTracker-9: convert img data to Image type defined by protobuf
 			for (int k = 0; k < source->sum_num(); k++) {
 				const data_type *data = source->get_cpu_data_across_dev(k);
 				data_type max_v = -1000000;
@@ -417,17 +419,16 @@ namespace caffepro {
 						max_v = data[j];
 						max_index = j;
 					}
-					img_info->mutable_images(img_count)->add_prob(data[j]);
+					img_info->mutable_images(img_count)->add_prob(data[j]); // DeepTracker-9: set up class score vector, the one with maximum value is the final anwser
 				}
-				img_info->mutable_images(img_count)->set_answer(max_index);
+				img_info->mutable_images(img_count)->set_answer(max_index); // DeepTracker-9: set up answer value
 				img_count++;
-				//std::cout << img_info->images(k + i * param_.test_iter()).class_name() << ":  " << 
-				//	img_info->images(k + i * param_.test_iter()).label_id() << " - " << max_index << std::endl;
 			}
 
 			merge_metrics(metrics, *test_net_);
 		}
-		img_info->set_iteration(iter_);
+		// DeepTracker-9: save img data to mongodb
+		img_info->set_iteration(iter_); // set current iteration
 		analyzer::DumpInfo imgInfos;
 		imgInfos.testRecord(*img_info, analyzer_tools_instance_);
 		img_info->Clear();
@@ -441,7 +442,7 @@ namespace caffepro {
 			return (data_type)metrics[param_.test_primary_output_index()].value;
 		}
 
-
+		// DeepTracker-10: save test related info to mongodb
 		analyzer_tools_instance_->deal_rec_info(iter_, analyzer_tools::Analyzer::RECORD_TYPE::TEST_ERROR, (float)metrics[0].value);
 		analyzer_tools_instance_->deal_rec_info(iter_, analyzer_tools::Analyzer::RECORD_TYPE::TEST_LOSS, (float)metrics[1].value);
 

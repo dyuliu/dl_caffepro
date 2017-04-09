@@ -160,6 +160,7 @@ namespace caffepro {
 			infos.save_to_file(foldname);
 		}
 
+		// DeepTracker-7: save para to mongodb
 		if (type_ == 2) {
 			analyzer::DumpInfo infos;
 			// To do: add image batch indexes
@@ -200,8 +201,7 @@ namespace caffepro {
 
 				// record weight
 				if ((iter_ != ori_iter_) && (int(iter_ / update_interval_) % dump_invl_ == 0)) {
-					save_record(2);
-					//std::cout << "iteration:  " << iter_ << "  " << global_lr << std::endl;
+					save_record(2);   // DeepTracker-7: save para to mongodb
 				}
 
 				for (int i = 0; i < (int)weight_info_.weights.size(); i++) {

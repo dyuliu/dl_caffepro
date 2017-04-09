@@ -66,6 +66,8 @@ namespace caffepro {
 			net_->context()->hooks()->invoke(HOOK_AFTER_NET_FORWARD, *this, hook_args);*/
 		}
 
+
+		// DeepTracker-test: manual test function, dump .info to dist
 		analyzer::DumpInfo imgInfos;
 		if (!file_info.empty()) {
 			analyzer_proto::Info info;

@@ -113,6 +113,7 @@ namespace analyzer {
 			NOTSAVE		= 3U
 		};
 
+		// DeepTracker-9: save img data to mongodb
 		void testRecord(analyzer_proto::Images &imgs, boost::shared_ptr<analyzer_tools::Analyzer> analyzer_tools_instance_) {
 			analyzer_tools_instance_->deal_img_info(imgs, 50000);
 		}
@@ -142,8 +143,10 @@ namespace analyzer {
 			std::vector<boost::shared_ptr<caffepro_layer>> &layers_,
 			boost::shared_ptr<data_provider> &data_provider_,
 			int iteration_, int rank_, save_method save_method_ = SAVE_ALL) {
-			// filename define
-			// AAAAAAAA_BBB.info iteration_rank
+
+			// DeepTracker-7: save para to mongodb, first convert data type to .info class defined by protobuf
+
+			// filename format: AAAAAAAA_BBB.info iteration_rank --- rank means node number, 0 for main node, others for slave node
 			std::string filename = "";
 			filename = caffepro::fill_zero(iteration_, 8) + "_" + caffepro::fill_zero(rank_, 3);
 
@@ -152,6 +155,7 @@ namespace analyzer {
 			info.set_iteration(iteration_);
 			info.set_worker_id(rank_);
 
+			// save training image info
 			if (save_method_ == SAVE_ALL) {
 				auto &img_info_ = data_provider_->img_info();
 				img_info_->set_iteration(iteration_);
@@ -164,6 +168,7 @@ namespace analyzer {
 				for (auto weight_info_ : layer_->weights()) {
 
 					auto weight = weight_info_->get(0);
+					// add one layer to info
 					auto nl = info.add_layers();
 
 					nl->set_count(weight->count());
@@ -177,10 +182,10 @@ namespace analyzer {
 					if (save_method_ != NOTSAVE) {
 						for (int i = 0; i < nl->count(); i++) {
 							if (save_method_ == SAVE_GRAD || save_method_ == SAVE_ALL) {
-								nl->add_grad(weight->cpu_diff()[i]);
+								nl->add_grad(weight->cpu_diff()[i]);		// gradient info
 							}
 							if (save_method_ == SAVE_WEIGHT || save_method_ == SAVE_ALL) {
-								nl->add_weight(weight->cpu_data()[i]);
+								nl->add_weight(weight->cpu_data()[i]);		// weight info
 							}
 						}
 					}
@@ -201,6 +206,7 @@ namespace analyzer {
 
 		// dump to db
 		void save_to_db(boost::shared_ptr<analyzer_tools::Analyzer> analyzer_tools_instance_) {
+			// DeepTracker-7: save para to mongodb
 			analyzer_tools_instance_->deal_para_info(info);
 		}
 

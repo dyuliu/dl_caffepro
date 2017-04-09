@@ -195,6 +195,7 @@ void train(int argc, char *argv[]) {
 
 	COUT_WORKID(instance_->get_worker_id()) << "Sum of rank value is " << sum_ << std::endl;
 
+	// DeepTracker-2: three types for starting a training process
 	if (!FLAGS_prototxt.empty()) {
 		if (!FLAGS_solverstate.empty()) {
 			COUT_READ << "Continue training from " << FLAGS_solverstate << endl;
@@ -212,7 +213,7 @@ void train(int argc, char *argv[]) {
 			COUT_READ << "Training from scratch" << endl;
 			COUT_READ << "Prototxt file = " << FLAGS_prototxt << endl;
 			COUT_RUNN << "Updater = " << FLAGS_updater << endl;
-			caffepro_tools::train(&context, FLAGS_prototxt, "", false, FLAGS_updater);
+			caffepro_tools::train(&context, FLAGS_prototxt, "", false, FLAGS_updater);  // DeepTracker-3: we mainly use this one
 		}
 	}
 	else {
@@ -660,6 +661,7 @@ int main(int argc, char *argv[]) {
 		return 1;
 	}
 
+	// DeepTracker-1: the entry of the tool, we use train action to start a training process
 	if (FLAGS_action == "train") {
 		train(argc, argv);
 	}

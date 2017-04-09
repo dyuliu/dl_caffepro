@@ -102,6 +102,7 @@ namespace caffepro {
 					img->set_label_id(iter->processed_data->label_id);
 				}
 				else if (context_->get_phase() == caffepro_context::TEST){
+					// DeepTracker-9: convert img data to Image type defined by protobuf
 					auto img = test_img_info_->add_images();
 					img->set_class_name(iter->processed_data->class_name);
 					img->set_file_name(iter->processed_data->data_name);

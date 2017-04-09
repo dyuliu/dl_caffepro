@@ -80,6 +80,7 @@ namespace caffepro_tools {
 	void train(caffepro::caffepro_context *context, const std::string &prototxt_file, const std::string &protobin_file, bool finetune, const std::string &updater) {
 		init_log();
 
+		// DeepTracker-4: initialize solver to start the training process
 		sgd_solver solver(context, prototxt_file, nullptr, nullptr, updater);
 
 		if (!protobin_file.empty()) {
@@ -144,6 +145,8 @@ namespace caffepro_tools {
 		context->events()->wait_all();
 	}
 
+	
+	// DeepTracker-test: manual test function
 	void test(caffepro::caffepro_context *context, const std::string &prototxt_file, const std::string &model_file, int nIters, int display_iters, const std::string &info_file) {
 		
 		init_log();
@@ -169,7 +172,7 @@ namespace caffepro_tools {
 
 		NetParameter net_weights;
 		proto_io(net_weights).from_binary_file(model_file);
-		net->load_weights(net_weights);
+		net->load_weights(net_weights);  // load weight parameters
 
 		net_tester tester(net);
 		tester.run(nIters, display_iters, info_file);
