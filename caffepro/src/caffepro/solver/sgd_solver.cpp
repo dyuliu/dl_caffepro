@@ -65,7 +65,7 @@ namespace caffepro {
 		LOG(INFO) << "Creating training net.";
 
 		// DeepTracker-5: initialize Analyzer_tools
-		analyzer_tools_instance_.reset(new analyzer_tools::Analyzer("finaltlib2", "ig-1x-lr2", "localhost:27017"));
+		analyzer_tools_instance_.reset(new analyzer_tools::Analyzer("finaltlib3", "cf-1x", "localhost:27017", "cifar.json"));
 
 		ENTER_DEVICE_CONTEXT(solver_device_id_)
 			net_.reset(caffepro_net::create_from_proto(context_, train_net_param, dataprovider_train));
@@ -360,21 +360,6 @@ namespace caffepro {
 		analyzer_tools_instance_->deal_rec_info(cur_iter_, analyzer_tools::Analyzer::RECORD_TYPE::UPDATE_TIME, (float)up_t.value);
 		analyzer_tools_instance_->deal_rec_info(cur_iter_, analyzer_tools::Analyzer::RECORD_TYPE::LEARNING_RATE, (float)lr.value);
 
-		//recorder_.add_record(cur_iter_, analyzer::RecordInfo::RECORD_TYPE::TRAIN_ERROR, (float)metrics[0].value);
-		//recorder_.add_record(cur_iter_, analyzer::RecordInfo::RECORD_TYPE::TRAIN_LOSS, (float)metrics[1].value);
-		//recorder_.add_record(cur_iter_, analyzer::RecordInfo::RECORD_TYPE::FORWARD_TIME, (float)fw_t.value);
-		//recorder_.add_record(cur_iter_, analyzer::RecordInfo::RECORD_TYPE::BACKWARD_TIME, (float)bp_t.value);
-		//recorder_.add_record(cur_iter_, analyzer::RecordInfo::RECORD_TYPE::UPDATE_TIME, (float)up_t.value);
-		//recorder_.add_record(cur_iter_, analyzer::RecordInfo::RECORD_TYPE::LEARNING_RATE, (float)lr.value);
-
-		//for (auto item : update_mean_metrics) {
-		//	auto val = item.value/iterations;
-		//	auto type = item.name;
-		//	recorder_.add_record(cur_iter_, type, val);
-		//}
-		//
-		//recorder_.save_to_file("running_info_" + std::to_string(worker_id_));
-
 		return (data_type)metrics[0].value;
 	}
 
@@ -445,10 +430,6 @@ namespace caffepro {
 		// DeepTracker-10: save test related info to mongodb
 		analyzer_tools_instance_->deal_rec_info(iter_, analyzer_tools::Analyzer::RECORD_TYPE::TEST_ERROR, (float)metrics[0].value);
 		analyzer_tools_instance_->deal_rec_info(iter_, analyzer_tools::Analyzer::RECORD_TYPE::TEST_LOSS, (float)metrics[1].value);
-
-		//recorder_.add_record(iter_, analyzer::RecordInfo::RECORD_TYPE::TEST_ERROR, (float)metrics[0].value);
-		//recorder_.add_record(iter_, analyzer::RecordInfo::RECORD_TYPE::TEST_LOSS, (float)metrics[1].value);
-		//recorder_.save_to_file("running_info_" + std::to_string(worker_id_));
 
 		return (data_type)metrics[0].value;
 	}
