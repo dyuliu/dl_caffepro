@@ -65,7 +65,7 @@ namespace caffepro {
 		LOG(INFO) << "Creating training net.";
 
 		// DeepTracker-5: initialize Analyzer_tools
-		analyzer_tools_instance_.reset(new analyzer_tools::Analyzer("finaltlib3", "cf-1x", "localhost:27017", "cifar.json"));
+		analyzer_tools_instance_.reset(new analyzer_tools::Analyzer("finaltlib4", "cf-1x", "localhost:27017", "cifar.json"));
 
 		ENTER_DEVICE_CONTEXT(solver_device_id_)
 			net_.reset(caffepro_net::create_from_proto(context_, train_net_param, dataprovider_train));
